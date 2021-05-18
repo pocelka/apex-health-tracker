@@ -1,0 +1,15 @@
+{
+  "TimeSheet": {
+    "folders": {
+      "output": {
+        "delete": false,
+        "path": "c:\\Scripts\\!git\\DMT\\time-tracker\\docs\\source"
+      },
+      "source": {
+        "path": "c:\\Scripts\\!git\\DMT\\time-tracker\\source\\packages",
+        "fileFilterRegexp": "\\.pk(b|s)$"
+      },
+      "template": "c:\\Scripts\\!git\\DMT\\time-tracker\\docs\\template\\template_package.md"
+    }
+  }
+}
