@@ -28,14 +28,13 @@ prompt APPLICATION 100 - Time Tracker
 -- Application Export:
 --   Application:     100
 --   Name:            Time Tracker
---   Date and Time:   20:00 Wednesday May 26, 2021
---   Exported By:     ADMIN
+--   Exported By:     TIME_TRACKER
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      8
 --       Items:                   16
 --       Processes:               12
---       Regions:                 14
+--       Regions:                 13
 --       Buttons:                  8
 --       Dynamic Actions:          3
 --     Shared Components:
@@ -63,7 +62,7 @@ prompt APPLICATION 100 - Time Tracker
 --       Globalization:
 --       Reports:
 --       E-Mail:
---     Supporting Objects:  Included
+--     Supporting Objects:  Excluded
 --   Version:         21.1.0
 --   Instance ID:     700110580034776
 --
@@ -116,7 +115,7 @@ wwv_flow_api.create_flow(
 ,p_auto_time_zone=>'Y'
 ,p_friendly_url=>'N'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526195849'
+,p_last_upd_yyyymmddhh24miss=>'20210526213250'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 ,p_print_server_type=>'INSTANCE'
@@ -133,9 +132,9 @@ wwv_flow_api.create_list(
 wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(19689325038330508)
 ,p_list_item_display_sequence=>10
-,p_list_item_link_text=>'Dashboard'
+,p_list_item_link_text=>'Reports'
 ,p_list_item_link_target=>'f?p=&APP_ID.:1:&SESSION.::&DEBUG.::::'
-,p_list_item_icon=>'fa-home'
+,p_list_item_icon=>'fa-line-chart'
 ,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
 ,p_list_item_current_for_pages=>'1'
 );
@@ -338,11 +337,6 @@ wwv_flow_api.create_static_lov_data(
 end;
 /
 prompt --application/pages/page_groups
-begin
-null;
-end;
-/
-prompt --application/comments
 begin
 null;
 end;
@@ -11271,11 +11265,6 @@ begin
 null;
 end;
 /
-prompt --application/shared_components/globalization/translations
-begin
-null;
-end;
-/
 prompt --application/shared_components/logic/build_options
 begin
 null;
@@ -11354,7 +11343,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210524120948'
+,p_last_upd_yyyymmddhh24miss=>'20210526213250'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23738608068599142)
@@ -11362,7 +11351,7 @@ wwv_flow_api.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(19653816859330477)
-,p_plug_display_sequence=>40
+,p_plug_display_sequence=>30
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'BODY'
 ,p_query_type=>'SQL'
@@ -11659,133 +11648,6 @@ wwv_flow_api.create_worksheet_condition(
 ,p_enabled=>'Y'
 );
 wwv_flow_api.create_page_plug(
- p_id=>wwv_flow_api.id(23740606076599162)
-,p_plug_name=>'Last 3 Months'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_api.id(19654287211330477)
-,p_plug_display_sequence=>10
-,p_include_in_reg_disp_sel_yn=>'Y'
-,p_plug_grid_column_span=>4
-,p_plug_display_point=>'BODY'
-,p_query_type=>'SQL'
-,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with',
-'   time_sheet_grouped as (select ',
-'                              to_char(ts.start_dt, ''yyyy'') || ',
-'                              ''.'' ||',
-'                              to_char(ts.start_dt, ''mm'')                        as work_month,',
-'                              sum(coalesce(ts.end_dt,sysdate) - ts.start_dt)    as duration,',
-'                              t.project_relevant',
-'                           from ',
-'                              tt_task        t,',
-'                              tt_time_sheet  ts',
-'                           where 1 = 1',
-'                           and ts.tt_task_id = t.id',
-'                           and t.assigned_user = :APP_USER',
-'                           group by',
-'                              to_char(ts.start_dt, ''yyyy'') || ',
-'                              ''.'' ||',
-'                              to_char(ts.start_dt, ''mm''),',
-'                              t.project_relevant)',
-'select ',
-'   work_month,',
-'   tt_utils.convert_to_hours(p_minutes => duration * 60 * 24) as duration',
-'from time_sheet_grouped',
-'where 1 = 1',
-'and project_relevant = ''Y''',
-'order by 1 desc',
-'fetch first 3 rows only',
-';'))
-,p_plug_source_type=>'NATIVE_IR'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_prn_content_disposition=>'ATTACHMENT'
-,p_prn_document_header=>'APEX'
-,p_prn_units=>'INCHES'
-,p_prn_paper_size=>'LETTER'
-,p_prn_width=>8.5
-,p_prn_height=>11
-,p_prn_orientation=>'HORIZONTAL'
-,p_prn_page_header_font_color=>'#000000'
-,p_prn_page_header_font_family=>'Helvetica'
-,p_prn_page_header_font_weight=>'normal'
-,p_prn_page_header_font_size=>'12'
-,p_prn_page_footer_font_color=>'#000000'
-,p_prn_page_footer_font_family=>'Helvetica'
-,p_prn_page_footer_font_weight=>'normal'
-,p_prn_page_footer_font_size=>'12'
-,p_prn_header_bg_color=>'#9bafde'
-,p_prn_header_font_color=>'#000000'
-,p_prn_header_font_family=>'Helvetica'
-,p_prn_header_font_weight=>'normal'
-,p_prn_header_font_size=>'10'
-,p_prn_body_bg_color=>'#efefef'
-,p_prn_body_font_color=>'#000000'
-,p_prn_body_font_family=>'Helvetica'
-,p_prn_body_font_weight=>'normal'
-,p_prn_body_font_size=>'10'
-,p_prn_border_width=>.5
-,p_prn_page_header_alignment=>'CENTER'
-,p_prn_page_footer_alignment=>'CENTER'
-);
-wwv_flow_api.create_worksheet(
- p_id=>wwv_flow_api.id(23740776161599164)
-,p_max_row_count=>'1000000'
-,p_show_nulls_as=>'-'
-,p_show_search_bar=>'N'
-,p_report_list_mode=>'TABS'
-,p_lazy_loading=>false
-,p_show_detail_link=>'N'
-,p_owner=>'E2E'
-,p_internal_uid=>21540528454783140
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(23740864276599165)
-,p_db_column_name=>'WORK_MONTH'
-,p_display_order=>10
-,p_column_identifier=>'A'
-,p_column_label=>'Month'
-,p_allow_sorting=>'N'
-,p_allow_filtering=>'N'
-,p_allow_highlighting=>'N'
-,p_allow_ctrl_breaks=>'N'
-,p_allow_aggregations=>'N'
-,p_allow_computations=>'N'
-,p_allow_charting=>'N'
-,p_allow_group_by=>'N'
-,p_allow_pivot=>'N'
-,p_allow_hide=>'N'
-,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
-);
-wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(23741018811599166)
-,p_db_column_name=>'DURATION'
-,p_display_order=>20
-,p_column_identifier=>'B'
-,p_column_label=>'Duration'
-,p_allow_sorting=>'N'
-,p_allow_filtering=>'N'
-,p_allow_highlighting=>'N'
-,p_allow_ctrl_breaks=>'N'
-,p_allow_aggregations=>'N'
-,p_allow_computations=>'N'
-,p_allow_charting=>'N'
-,p_allow_group_by=>'N'
-,p_allow_pivot=>'N'
-,p_allow_hide=>'N'
-,p_column_type=>'STRING'
-);
-wwv_flow_api.create_worksheet_rpt(
- p_id=>wwv_flow_api.id(23826395322206089)
-,p_application_user=>'APXWS_DEFAULT'
-,p_report_seq=>10
-,p_report_alias=>'216262'
-,p_status=>'PUBLIC'
-,p_is_default=>'Y'
-,p_report_columns=>'WORK_MONTH:DURATION'
-);
-wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23741099383599167)
 ,p_plug_name=>'Last 3 weeks'
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
@@ -11794,7 +11656,7 @@ wwv_flow_api.create_page_plug(
 ,p_plug_display_sequence=>20
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_new_grid_row=>false
-,p_plug_grid_column_span=>4
+,p_plug_grid_column_span=>6
 ,p_plug_display_point=>'BODY'
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -11924,9 +11786,10 @@ wwv_flow_api.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(19654287211330477)
-,p_plug_display_sequence=>30
+,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_new_grid_row=>false
+,p_plug_grid_column_span=>6
 ,p_plug_display_point=>'BODY'
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -13228,21 +13091,6 @@ wwv_flow_api.create_page_process(
 ,p_process_sql_clob=>':P101_USERNAME := apex_authentication.get_login_username_cookie;'
 ,p_process_clob_language=>'PLSQL'
 );
-end;
-/
-prompt --application/deployment/definition
-begin
-null;
-end;
-/
-prompt --application/deployment/checks
-begin
-null;
-end;
-/
-prompt --application/deployment/buildoptions
-begin
-null;
 end;
 /
 prompt --application/end_environment
