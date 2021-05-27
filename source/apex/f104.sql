@@ -31,10 +31,10 @@ prompt APPLICATION 100 - Time Tracker
 --   Exported By:     TIME_TRACKER
 --   Flashback:       0
 --   Export Type:     Application Export
---     Pages:                      8
---       Items:                   16
+--     Pages:                     10
+--       Items:                   17
 --       Processes:               12
---       Regions:                 13
+--       Regions:                 15
 --       Buttons:                  8
 --       Dynamic Actions:          3
 --     Shared Components:
@@ -115,7 +115,7 @@ wwv_flow_api.create_flow(
 ,p_auto_time_zone=>'Y'
 ,p_friendly_url=>'N'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526213250'
+,p_last_upd_yyyymmddhh24miss=>'20210527224038'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 ,p_print_server_type=>'INSTANCE'
@@ -181,11 +181,62 @@ wwv_flow_api.create_list(
 ,p_list_status=>'PUBLIC'
 );
 wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5301704400513453)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'About'
+,p_list_item_icon=>'fa-question-circle-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5302063036527760)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Page Help'
+,p_list_item_link_target=>'f?p=&APP_ID.:10041:&SESSION.::&DEBUG.::P10041_PAGE_ID:&APP_PAGE_ID.:'
+,p_list_item_icon=>'fa-question-circle-o'
+,p_parent_list_item_id=>wwv_flow_api.id(5301704400513453)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5302323820532858)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'---'
+,p_list_item_link_target=>'separator'
+,p_parent_list_item_id=>wwv_flow_api.id(5301704400513453)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5302664576540400)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'About Application'
+,p_list_item_link_target=>'f?p=&APP_ID.:10040:&SESSION.::&DEBUG.:10040:::'
+,p_list_item_icon=>'fa-info-circle-o'
+,p_parent_list_item_id=>wwv_flow_api.id(5301704400513453)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5302947827545463)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'&APP_USER.'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-user'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(5303234891549039)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'---'
+,p_list_item_link_target=>'separator'
+,p_parent_list_item_id=>wwv_flow_api.id(5302947827545463)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(19687968013330502)
-,p_list_item_display_sequence=>10
-,p_list_item_link_text=>'Log Out'
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'Sign Out'
 ,p_list_item_link_target=>'&LOGOUT_URL.'
-,p_list_item_current_for_pages=>'&LOGOUT_URL.'
+,p_list_item_icon=>'fa-sign-out'
+,p_parent_list_item_id=>wwv_flow_api.id(5302947827545463)
+,p_list_item_current_type=>'TARGET_PAGE'
 );
 end;
 /
@@ -11342,8 +11393,13 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Dashboard'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'This page displays summary information for time statistics.',
+'</p>',
+''))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526213250'
+,p_last_upd_yyyymmddhh24miss=>'20210527220351'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23738608068599142)
@@ -11916,8 +11972,13 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Admin Task List'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'On this page user can see which tasks are availale for him to use an upon clicking on the link task properties can be modified.',
+'</p>',
+''))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526195849'
+,p_last_upd_yyyymmddhh24miss=>'20210527220538'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23687360016452815)
@@ -12053,8 +12114,13 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_attributes=>'resizable:true'
 ,p_protection_level=>'C'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'On this page user modify properties of each task.',
+'</p>',
+''))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526195506'
+,p_last_upd_yyyymmddhh24miss=>'20210527223808'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23679012413452794)
@@ -12150,6 +12216,10 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>400
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'User can specify font Awesome icon which will be displayed on the card on the main page. ',
+'List of possible icons can be found for example ',
+'<a href="https://apex.oracle.com/pls/apex/apex_pm/r/ut/icons">here</a>.'))
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12186,6 +12256,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>400
 ,p_field_template=>wwv_flow_api.id(4744844754209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'Task name which user is working on.'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12205,6 +12276,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>200
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'User can work on multiple projects at the same time. This is the place where can be specified to which project task belongs.'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12225,6 +12297,7 @@ wwv_flow_api.create_page_item(
 ,p_cHeight=>4
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'User can provide more information for the task; i.e. which activities the task involves.'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'N'
 ,p_attribute_03=>'N'
@@ -12248,6 +12321,7 @@ wwv_flow_api.create_page_item(
 ,p_field_template=>wwv_flow_api.id(4744844754209408)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
+,p_help_text=>'When active, task is displayed on the main page in the form of cards. It is possible that over time some tasks become not relevant and should be hidden from UI.'
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
 );
@@ -12269,6 +12343,7 @@ wwv_flow_api.create_page_item(
 ,p_field_template=>wwv_flow_api.id(4744844754209408)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
+,p_help_text=>'Indicates whether task is billable; i.e. out of work activities like commuting to work might not be considered as billable activity.'
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
 );
@@ -12345,8 +12420,29 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Tasks'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'    This is the main application page. ',
+'</p>',
+'',
+'<p>',
+'    User can to the following:',
+'',
+'    <ul>',
+'        <li>',
+'            Create new task - Clicking on the default card, user will be re-directed to ',
+'            the page where he can define new task not displaying on this page.',
+'        </li>',
+'        <li>',
+'            Define task start - Upon clicking on task card user will be re-directed to the ',
+'            page where additional information about activities involved in that task can be ',
+'            specified. This will also ensure that last active task is closed and new one is ',
+'            created in time sheet.',
+'        </li>',
+'    </ul>',
+'</p>'))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210524120948'
+,p_last_upd_yyyymmddhh24miss=>'20210527223317'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(20037564088191858)
@@ -12373,8 +12469,18 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Task Submit'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_last_updated_by=>'E2E'
-,p_last_upd_yyyymmddhh24miss=>'20180501161552'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'    On this page user can specify further details for started task; i.e. which activities he will ',
+'    be working on.',
+'</p>',
+'',
+'<p>',
+'    Upon clicking on th "SAVE" button, last active task in time sheet is closed and new one is',
+'    created.',
+'</p>'))
+,p_last_updated_by=>'ADMIN'
+,p_last_upd_yyyymmddhh24miss=>'20210527223241'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(20037667375191859)
@@ -12466,7 +12572,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_attributes=>'resizable:true'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210526184540'
+,p_last_upd_yyyymmddhh24miss=>'20210527223727'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23742869211676331)
@@ -12526,6 +12632,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>100
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'User can specify font Awesome icon which will be displayed on the card on the main page. List of possible icons can be found for example <a href="https://apex.oracle.com/pls/apex/apex_pm/r/ut/icons">here</a>.'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12543,6 +12650,7 @@ wwv_flow_api.create_page_item(
 ,p_cHeight=>5
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'User can provide more information for the task; i.e. which activities the task involves.'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'N'
 ,p_attribute_03=>'Y'
@@ -12560,6 +12668,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>100
 ,p_field_template=>wwv_flow_api.id(4744844754209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'Task name which user is working on.'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12576,6 +12685,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>50
 ,p_field_template=>wwv_flow_api.id(4744596400209408)
 ,p_item_template_options=>'#DEFAULT#'
+,p_help_text=>'User can work on multiple projects at the same time. This is the place where can be specified to which project task belongs.'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -12595,6 +12705,7 @@ wwv_flow_api.create_page_item(
 ,p_field_template=>wwv_flow_api.id(4744844754209408)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
+,p_help_text=>'Indicates whether task is billable; i.e. out of work activities like commuting to work might not be considered as billable activity.'
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
 );
@@ -12653,8 +12764,14 @@ wwv_flow_api.create_page(
 ,p_step_title=>'Time Correction'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>',
+'    This application requires that user builds a habit for using it. However it is possible that ',
+'    sometimes he will forget to switch tasks. When such situation happens, user should create ',
+'    new time entry from main page and move dates on this page to reflect the actual situation.',
+'</p>'))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20210524120948'
+,p_last_upd_yyyymmddhh24miss=>'20210527224038'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(23832141981228735)
@@ -13090,6 +13207,97 @@ wwv_flow_api.create_page_process(
 ,p_process_name=>'Get Username Cookie'
 ,p_process_sql_clob=>':P101_USERNAME := apex_authentication.get_login_username_cookie;'
 ,p_process_clob_language=>'PLSQL'
+);
+end;
+/
+prompt --application/pages/page_10040
+begin
+wwv_flow_api.create_page(
+ p_id=>10040
+,p_user_interface_id=>wwv_flow_api.id(19687884739330496)
+,p_name=>'About Application'
+,p_alias=>'ABOUT-APPLICATION'
+,p_step_title=>'About Application'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_help_text=>'All application help text can be accessed from this page. The links in the "Documentation" region give a much more in-depth explanation of the application''s features and functionality.'
+,p_last_updated_by=>'ADMIN'
+,p_last_upd_yyyymmddhh24miss=>'20210527221138'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(5305240358607203)
+,p_plug_name=>'About Application'
+,p_region_template_options=>'#DEFAULT#:t-ContentBlock--padded:t-ContentBlock--h1:t-ContentBlock--lightBG'
+,p_plug_template=>wwv_flow_api.id(19651217865330476)
+,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'BODY'
+,p_plug_source=>'Under Construction'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+end;
+/
+prompt --application/pages/page_10041
+begin
+wwv_flow_api.create_page(
+ p_id=>10041
+,p_user_interface_id=>wwv_flow_api.id(19687884739330496)
+,p_name=>'Help'
+,p_alias=>'PAGE_HELP'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Help'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_dialog_chained=>'N'
+,p_last_updated_by=>'ADMIN'
+,p_last_upd_yyyymmddhh24miss=>'20210527215904'
+);
+wwv_flow_api.create_page_plug(
+ p_id=>wwv_flow_api.id(5305030083607201)
+,p_plug_name=>'Search Dialog'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_api.id(19644268258330475)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'BODY'
+,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'for c1 in (select ',
+'               page_title, ',
+'               help_text ',
+'            from apex_application_pages',
+'            where 1 = 1',
+'            and page_id = :P10041_PAGE_ID ',
+'            and application_id = :APP_ID)',
+'loop',
+'   if c1.help_text is null then',
+'      sys.htp.p(''No help is available for this page.'');',
+'   else ',
+'      if substr(c1.help_text, 1, 3) != ''<p>'' then',
+'         sys.htp.p(''<p>'');',
+'      end if;',
+'',
+'      sys.htp.p(apex_application.do_substitutions(c1.help_text));',
+'',
+'      if substr(trim(c1.help_text), -4) != ''</p>'' then',
+'         sys.htp.p(''</p>'');',
+'      end if;',
+'      ',
+'   end if;',
+'end loop;'))
+,p_plug_source_type=>'NATIVE_PLSQL'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+);
+wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(5305130615607202)
+,p_name=>'P10041_PAGE_ID'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_api.id(5305030083607201)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
 );
 end;
 /
