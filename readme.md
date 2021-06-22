@@ -6,10 +6,10 @@ Time Tracker is an Oracle APEX application which helps me to track how much time
 
 Currently I'm using this application on daily basis hosted on [OCI Free Tier](https://www.oracle.com/cloud/free/) autonomous database.
 
-Additional informations can be found in the following subsections:
+Additional information can be found in the following subsections:
 
 - [History](./docs/history.md)
-- [Installation](./docs/installation.md)
+- [Installation & Un-Installation](./docs/installation.md)
 
 ## Key Features
 

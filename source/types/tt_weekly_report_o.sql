@@ -28,6 +28,7 @@ create or replace type tt_weekly_report_o authid current_user as object
       return self as result
 )
 /
+
 create or replace type body tt_weekly_report_o as
 
    constructor function tt_weekly_report_o(
