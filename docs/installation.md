@@ -1,20 +1,52 @@
-# Installation
+# Installation & Un-Installation
 
-At the time when I created this application I didn't think that code will be shared with others. This means that project doesn't have nice install script and project has to be deployed manually. If you want to deploy it, I assume that you are familiar with PL/SQL and Oracle native tools (SQL*Plus, SQLcl) and are able to install scripts manually as well as import application manually into your APEX instance.
+Installation & Un-installation follows standard approach when installing custom components to database using command line native tools SQL*Plus or SQLcl. This installation guide assumes that you are familiar with these tools. Installation is split to the following blocks:
 
-Recommendation is to install components to new user:
+- User creation (Optional): It is recommended to install time tracker to new schema, however components can be also installed to any existing user.
+- PL/SQL backend
+- APEX front end
 
-```sql
-create user time_tracker identified by time_tracker default tablespace users temporary tablespace temp;
-alter user time_tracker quota unlimited on users;
+## User Creation (Optional)
 
-grant
-   create session,
-   create sequence,
-   create procedure,
-   create type,
-   create table,
-   create view,
-   alter session
-to time_tracker;
+To create new user ask your DBA to create the following script:
+
+```bash
+cd source
+sqlcl [connection string] as sysdba @create_user.sql
 ```
+
+## PL/SQL Backend
+
+To install components, execute the following script as application owner:
+
+```bash
+cd source
+sqlcl [connection string]
+@install.sql
+```
+
+If no errors are produced in ```install.log``` file, back end installation is considered as successfully installed;
+
+## APEX Front End
+
+Ask your DBA to create a new APEX workspace, with option to re-use existing schema; schema created in previous step. At this moment application supports only authentication via application express accounts. Therefore, you will have to create users who will use this application manually as apex application users. Users are created by workspace administrator.
+
+Once APEX workspace exists execute the following script:
+
+```bash
+cd source
+sqlcl [connection string] @install_apex.sql
+```
+
+If no errors are produced in ```install_apex.log```. application is considered as successfully installed;
+
+## Un-Installation
+
+To un-install back end and front end components execute the following script as application owner:
+
+```bash
+cd source
+sqlcl [connection string] @install_apex.sql
+```
+
+If no errors are produced in ```uninstall.log```, application is considered as successfully uninstalled;
