@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="4884702c3baed94e838634e0c79de0422d0522ff" author="(TIME_TRACKER)-Generated" failOnError="false"    >
+		<n0:runOracleScript objectName="SCRIPT" objectType="APEX" ownerName="TIME_TRACKER" sourceType="STRING"  >
+			<n0:source><![CDATA[prompt --application/user_interfaces
+begin
+--   Manifest
+--     USER INTERFACES: 100
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>2600336800070006
+,p_default_application_id=>100
+,p_default_id_offset=>6700447157474117
+,p_default_owner=>'TIME_TRACKER'
+);
+wwv_flow_api.create_user_interface(
+ p_id=>wwv_flow_api.id(17487637032514472)
+,p_ui_type_name=>'DESKTOP'
+,p_display_name=>'Desktop'
+,p_display_seq=>10
+,p_use_auto_detect=>false
+,p_is_default=>true
+,p_theme_id=>42
+,p_home_url=>'f?p=&APP_ID.:4:&SESSION.'
+,p_login_url=>'f?p=&APP_ID.:LOGIN_DESKTOP:&SESSION.'
+,p_theme_style_by_user_pref=>false
+,p_navigation_list_id=>wwv_flow_api.id(17435418031514443)
+,p_navigation_list_position=>'SIDE'
+,p_navigation_list_template_id=>wwv_flow_api.id(2475382507393345)
+,p_nav_list_template_options=>'#DEFAULT#'
+,p_include_legacy_javascript=>'18'
+,p_include_jquery_migrate=>true
+,p_nav_bar_type=>'LIST'
+,p_nav_bar_list_id=>wwv_flow_api.id(17487590261514472)
+,p_nav_bar_list_template_id=>wwv_flow_api.id(17474197743514459)
+,p_nav_bar_template_options=>'#DEFAULT#'
+);
+wwv_flow_api.component_end;
+end;
+]]></n0:source>
+		</n0:runOracleScript>
+	</changeSet>
+</databaseChangeLog>

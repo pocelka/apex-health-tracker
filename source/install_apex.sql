@@ -32,6 +32,6 @@ begin
 end;
 /
 
-@@apex/app.sql
+lb update -changelog controller.xml
 
 exit

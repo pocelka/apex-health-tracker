@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="ce7cd3434fe02ca8a901b116358f7b2e5c4902b4" author="(TIME_TRACKER)-Generated" failOnError="false"    >
+		<n0:runOracleScript objectName="SCRIPT" objectType="APEX" ownerName="TIME_TRACKER" sourceType="STRING"  >
+			<n0:source><![CDATA[prompt --application/shared_components/navigation/lists/desktop_navigation_bar
+begin
+--   Manifest
+--     LIST: Desktop Navigation Bar
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>2600336800070006
+,p_default_application_id=>100
+,p_default_id_offset=>6700447157474117
+,p_default_owner=>'TIME_TRACKER'
+);
+wwv_flow_api.create_list(
+ p_id=>wwv_flow_api.id(17487590261514472)
+,p_name=>'Desktop Navigation Bar'
+,p_list_status=>'PUBLIC'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3101456693697429)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'About'
+,p_list_item_icon=>'fa-question-circle-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3101815329711736)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Page Help'
+,p_list_item_link_target=>'f?p=&APP_ID.:10041:&SESSION.::&DEBUG.::P10041_PAGE_ID:&APP_PAGE_ID.:'
+,p_list_item_icon=>'fa-question-circle-o'
+,p_parent_list_item_id=>wwv_flow_api.id(3101456693697429)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3102076113716834)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'---'
+,p_list_item_link_target=>'separator'
+,p_parent_list_item_id=>wwv_flow_api.id(3101456693697429)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3102416869724376)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'About Application'
+,p_list_item_link_target=>'f?p=&APP_ID.:10040:&SESSION.::&DEBUG.:10040:::'
+,p_list_item_icon=>'fa-info-circle-o'
+,p_parent_list_item_id=>wwv_flow_api.id(3101456693697429)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3102700120729439)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'&APP_USER.'
+,p_list_item_link_target=>'#'
+,p_list_item_icon=>'fa-user'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(3102987184733015)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'---'
+,p_list_item_link_target=>'separator'
+,p_parent_list_item_id=>wwv_flow_api.id(3102700120729439)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(17487720306514478)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'Sign Out'
+,p_list_item_link_target=>'&LOGOUT_URL.'
+,p_list_item_icon=>'fa-sign-out'
+,p_parent_list_item_id=>wwv_flow_api.id(3102700120729439)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.component_end;
+end;
+]]></n0:source>
+		</n0:runOracleScript>
+	</changeSet>
+</databaseChangeLog>

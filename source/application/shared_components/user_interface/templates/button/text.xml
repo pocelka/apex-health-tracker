@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="19ac50eafd8ed7b5a66bac69a147a8ab70b865c6" author="(TIME_TRACKER)-Generated" failOnError="false"    >
+		<n0:runOracleScript objectName="SCRIPT" objectType="APEX" ownerName="TIME_TRACKER" sourceType="STRING"  >
+			<n0:source><![CDATA[prompt --application/shared_components/user_interface/templates/button/text
+begin
+--   Manifest
+--     BUTTON TEMPLATE: TEXT
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>2600336800070006
+,p_default_application_id=>100
+,p_default_id_offset=>6700447157474117
+,p_default_owner=>'TIME_TRACKER'
+);
+wwv_flow_api.create_button_templates(
+ p_id=>wwv_flow_api.id(17476857333514462)
+,p_template_name=>'Text'
+,p_internal_name=>'TEXT'
+,p_template=>'<button onclick="#JAVASCRIPT#" class="t-Button #BUTTON_CSS_CLASSES#" type="button" #BUTTON_ATTRIBUTES# id="#BUTTON_ID#"><span class="t-Button-label">#LABEL#</span></button>'
+,p_hot_template=>'<button onclick="#JAVASCRIPT#" class="t-Button t-Button--hot #BUTTON_CSS_CLASSES#" type="button" #BUTTON_ATTRIBUTES# id="#BUTTON_ID#"><span class="t-Button-label">#LABEL#</span></button>'
+,p_reference_id=>4070916158035059322
+,p_translate_this_template=>'N'
+,p_theme_class_id=>1
+,p_theme_id=>42
+);
+wwv_flow_api.component_end;
+end;
+]]></n0:source>
+		</n0:runOracleScript>
+	</changeSet>
+</databaseChangeLog>
