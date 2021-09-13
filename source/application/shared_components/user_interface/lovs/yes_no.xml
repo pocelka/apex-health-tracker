@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog 
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:n0="http://www.oracle.com/xml/ns/dbchangelog-ext" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	<changeSet id="bfbc608ff6a7e8c0f665bbd5b33842cccbb41e13" author="(TIME_TRACKER)-Generated" failOnError="false"    >
+		<n0:runOracleScript objectName="SCRIPT" objectType="APEX" ownerName="TIME_TRACKER" sourceType="STRING"  >
+			<n0:source><![CDATA[prompt --application/shared_components/user_interface/lovs/yes_no
+begin
+--   Manifest
+--     YES_NO
+--   Manifest End
+wwv_flow_api.component_begin (
+ p_version_yyyy_mm_dd=>'2021.04.15'
+,p_release=>'21.1.0'
+,p_default_workspace_id=>2600336800070006
+,p_default_application_id=>100
+,p_default_id_offset=>6700447157474117
+,p_default_owner=>'TIME_TRACKER'
+);
+wwv_flow_api.create_list_of_values(
+ p_id=>wwv_flow_api.id(21470365687293907)
+,p_lov_name=>'YES_NO'
+,p_lov_query=>'.'||wwv_flow_api.id(21470365687293907)||'.'
+,p_location=>'STATIC'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(21470694125293916)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'Yes'
+,p_lov_return_value=>'Y'
+);
+wwv_flow_api.create_static_lov_data(
+ p_id=>wwv_flow_api.id(21471000722293916)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'No'
+,p_lov_return_value=>'N'
+);
+wwv_flow_api.component_end;
+end;
+]]></n0:source>
+		</n0:runOracleScript>
+	</changeSet>
+</databaseChangeLog>
