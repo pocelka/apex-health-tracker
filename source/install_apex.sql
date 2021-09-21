@@ -32,6 +32,6 @@ begin
 end;
 /
 
-lb update -changelog controller.xml
+@@apex/install.sql
 
 exit
