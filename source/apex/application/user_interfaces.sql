@@ -20,7 +20,7 @@ wwv_flow_imp_shared.create_user_interface(
 ,p_is_default=>true
 ,p_theme_id=>42
 ,p_home_url=>'f?p=&APP_ID.:4:&SESSION.'
-,p_login_url=>'f?p=&APP_ID.:LOGIN_DESKTOP:&SESSION.'
+,p_login_url=>'f?p=&APP_ID.:LOGIN:&SESSION.'
 ,p_theme_style_by_user_pref=>false
 ,p_navigation_list_id=>wwv_flow_imp.id(65848845689281369)
 ,p_navigation_list_position=>'SIDE'

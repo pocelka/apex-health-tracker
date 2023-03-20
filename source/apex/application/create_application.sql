@@ -52,7 +52,7 @@ wwv_flow_imp.create_flow(
 ,p_auto_time_zone=>'Y'
 ,p_tokenize_row_search=>'N'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20230320152851'
+,p_last_upd_yyyymmddhh24miss=>'20230320185248'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 ,p_print_server_type=>'INSTANCE'

@@ -30,7 +30,7 @@ wwv_flow_imp_shared.create_theme_style(
  p_id=>wwv_flow_imp.id(20629431734746740)
 ,p_theme_id=>42
 ,p_name=>'Vita'
-,p_is_current=>true
+,p_is_current=>false
 ,p_is_public=>true
 ,p_is_accessible=>true
 ,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Vita.less'
@@ -73,6 +73,18 @@ wwv_flow_imp_shared.create_theme_style(
 ,p_theme_roller_output_file_url=>'#THEME_FILES#css/Vita-Slate#MIN#.css?v=#APEX_VERSION#'
 ,p_theme_roller_read_only=>true
 ,p_reference_id=>3291983347983194966
+);
+wwv_flow_imp_shared.create_theme_style(
+ p_id=>wwv_flow_imp.id(22202104016103481)
+,p_theme_id=>42
+,p_name=>'Vita - CSS Changes'
+,p_is_current=>true
+,p_is_public=>true
+,p_is_accessible=>true
+,p_theme_roller_input_file_urls=>'#THEME_FILES#less/theme/Vita.less'
+,p_theme_roller_config=>'{"classes":[],"vars":{},"customCSS":".t-Login-body p {\n    font-size:smaller;\n}","useCustomLess":"N"}'
+,p_theme_roller_output_file_url=>'#THEME_DB_FILES#22202104016103481.css'
+,p_theme_roller_read_only=>false
 );
 wwv_flow_imp.component_end;
 end;

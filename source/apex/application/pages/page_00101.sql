@@ -15,27 +15,29 @@ wwv_flow_imp_page.create_page(
  p_id=>101
 ,p_user_interface_id=>wwv_flow_imp.id(65901064690281398)
 ,p_name=>'Login Page'
-,p_alias=>'LOGIN_DESKTOP'
+,p_alias=>'LOGIN'
 ,p_step_title=>'T-Track - Log In'
 ,p_warn_on_unsaved_changes=>'N'
 ,p_first_item=>'AUTO_FIRST_ITEM'
 ,p_autocomplete_on_off=>'OFF'
 ,p_step_template=>wwv_flow_imp.id(65850871136281373)
+,p_page_css_classes=>'login-region'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
+,p_protection_level=>'C'
 ,p_page_component_map=>'12'
-,p_last_updated_by=>'TIME_TRACKER'
-,p_last_upd_yyyymmddhh24miss=>'20210722215753'
+,p_last_updated_by=>'ADMIN'
+,p_last_upd_yyyymmddhh24miss=>'20230320185248'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(65901574924281408)
 ,p_plug_name=>'T-Track'
 ,p_icon_css_classes=>'fa-sign-in'
-,p_region_template_options=>'#DEFAULT#:margin-top-sm:margin-bottom-sm:margin-left-sm:margin-right-sm'
+,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(65867264563281379)
 ,p_plug_display_sequence=>10
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'<p>To sign into your personal time sheet application, please use your Application Express Workspace username and password.</p>',
+'<p>To sign into your personal time sheet application, please use your APEX Workspace username and password.</p>',
 '<br>'))
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
@@ -52,6 +54,20 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Log In'
 ,p_button_position=>'NEXT'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(22000694956993501)
+,p_name=>'P101_REMEMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(65901574924281408)
+,p_prompt=>'Remember username'
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_display_when=>'apex_authentication.persistent_cookies_enabled'
+,p_display_when2=>'PLSQL'
+,p_display_when_type=>'EXPRESSION'
+,p_field_template=>wwv_flow_imp.id(65889664888281386)
+,p_item_template_options=>'#DEFAULT#'
+,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(65901693537281408)
@@ -96,7 +112,9 @@ wwv_flow_imp_page.create_page_process(
 ,p_process_name=>'Set Username Cookie'
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'apex_authentication.send_login_username_cookie (',
-'    p_username => lower(:P101_USERNAME) );'))
+'    p_username => lower(:P101_USERNAME),',
+'    p_consent  => :P101_REMEMBER = ''Y'' ',
+'    );'))
 ,p_process_clob_language=>'PLSQL'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
