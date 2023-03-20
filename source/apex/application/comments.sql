@@ -1,7 +1,7 @@
-prompt --application/shared_components/globalization/messages
+prompt --application/comments
 begin
 --   Manifest
---     MESSAGES: 106
+--     APPLICATION COMMENTS: 106
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2022.04.12'

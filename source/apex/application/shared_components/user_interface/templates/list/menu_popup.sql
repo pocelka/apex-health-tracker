@@ -3,16 +3,16 @@ begin
 --   Manifest
 --     REGION TEMPLATE: MENU_POPUP
 --   Manifest End
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>2600336800070006
-,p_default_application_id=>101
-,p_default_id_offset=>34500874075521803
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2022.04.12'
+,p_release=>'22.1.0'
+,p_default_workspace_id=>3000436975541529
+,p_default_application_id=>106
+,p_default_id_offset=>55113874815241043
 ,p_default_owner=>'TIME_TRACKER'
 );
-wwv_flow_api.create_list_template(
- p_id=>wwv_flow_api.id(45274477217562145)
+wwv_flow_imp_shared.create_list_template(
+ p_id=>wwv_flow_imp.id(65887477957281385)
 ,p_list_template_current=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<li data-id="#A01#" data-disabled="#A02#" data-hide="#A03#" data-shortcut="#A05#" data-icon="#ICON_CSS_CLASSES#"><a href="#LINK#" title="#A04#" target="#A06#">#TEXT_ESC_SC#</a></li>',
 ''))
@@ -47,6 +47,6 @@ wwv_flow_api.create_list_template(
 ,p_a06_label=>'Link Target'
 ,p_reference_id=>3492264004432431646
 );
-wwv_flow_api.component_end;
+wwv_flow_imp.component_end;
 end;
 /

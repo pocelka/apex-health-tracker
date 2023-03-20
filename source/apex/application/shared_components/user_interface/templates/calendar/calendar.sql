@@ -3,16 +3,16 @@ begin
 --   Manifest
 --     CALENDAR TEMPLATES: CALENDAR
 --   Manifest End
-wwv_flow_api.component_begin (
- p_version_yyyy_mm_dd=>'2021.04.15'
-,p_release=>'21.1.0'
-,p_default_workspace_id=>2600336800070006
-,p_default_application_id=>101
-,p_default_id_offset=>34500874075521803
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2022.04.12'
+,p_release=>'22.1.0'
+,p_default_workspace_id=>3000436975541529
+,p_default_application_id=>106
+,p_default_id_offset=>55113874815241043
 ,p_default_owner=>'TIME_TRACKER'
 );
-wwv_flow_api.create_calendar_template(
- p_id=>wwv_flow_api.id(45277926117562148)
+wwv_flow_imp_shared.create_calendar_template(
+ p_id=>wwv_flow_imp.id(65890926857281388)
 ,p_cal_template_name=>'Calendar'
 ,p_internal_name=>'CALENDAR'
 ,p_day_of_week_format=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -157,6 +157,6 @@ wwv_flow_api.create_calendar_template(
 ,p_theme_class_id=>1
 ,p_reference_id=>4070916747979059326
 );
-wwv_flow_api.component_end;
+wwv_flow_imp.component_end;
 end;
 /

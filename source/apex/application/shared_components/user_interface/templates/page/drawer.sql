@@ -1,7 +1,7 @@
-prompt --application/shared_components/user_interface/templates/page/login
+prompt --application/shared_components/user_interface/templates/page/drawer
 begin
 --   Manifest
---     TEMPLATE: LOGIN
+--     TEMPLATE: DRAWER
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2022.04.12'
@@ -12,12 +12,12 @@ wwv_flow_imp.component_begin (
 ,p_default_owner=>'TIME_TRACKER'
 );
 wwv_flow_imp_shared.create_template(
- p_id=>wwv_flow_imp.id(65850871136281373)
+ p_id=>wwv_flow_imp.id(20963466120746841)
 ,p_theme_id=>42
-,p_name=>'Login'
-,p_internal_name=>'LOGIN'
-,p_is_popup=>false
-,p_javascript_code_onload=>'apex.theme42.initializePage.appLogin();'
+,p_name=>'Drawer'
+,p_internal_name=>'DRAWER'
+,p_is_popup=>true
+,p_javascript_code_onload=>'apex.theme42.initializePage.modalDialog();'
 ,p_header_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<!DOCTYPE html>',
 '<html class="no-js #RTL_CLASS# page-&APP_PAGE_ID. app-&APP_ALIAS." lang="&BROWSER_LANGUAGE." #TEXT_DIRECTION#>',
@@ -35,19 +35,18 @@ wwv_flow_imp_shared.create_template(
 '  #HEAD#',
 '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
 '</head>',
-'<body class="t-PageBody--login t-PageTemplate--login no-anim #PAGE_CSS_CLASSES#" #TEXT_DIRECTION# #ONLOAD#>',
-'#FORM_OPEN#',
-'<div class="t-Login-bg">',
-'  #BACKGROUND_IMAGE#',
-'  <div class="t-Login-bgImg"></div>',
-'</div>'))
+'<body class="t-Drawer-page t-PageTemplate--drawer #DIALOG_CSS_CLASSES# #PAGE_CSS_CLASSES#" #TEXT_DIRECTION# #ONLOAD#>',
+'#FORM_OPEN#'))
 ,p_box=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'<div class="t-Login-container">',
-'  <header class="t-Login-containerHeader">#REGION_POSITION_01#</header>',
-'  <main class="t-Login-containerBody" id="main">#SUCCESS_MESSAGE##NOTIFICATION_MESSAGE##GLOBAL_NOTIFICATION##BODY#</main>',
-'  <footer class="t-Login-containerFooter">#REGION_POSITION_02#</footer>',
-'</div>',
-''))
+'<div class="t-Drawer" role="dialog" aria-label="#TITLE#">',
+'  <div class="t-Drawer-header">#REGION_POSITION_01#</div>',
+'  <div class="t-Drawer-bodyWrapperOut">',
+'    <div class="t-Drawer-bodyWrapperIn">',
+'      <div class="t-Drawer-body" role="main">#SUCCESS_MESSAGE##NOTIFICATION_MESSAGE##GLOBAL_NOTIFICATION##BODY#</div>',
+'    </div>',
+'  </div>',
+'  <div class="t-Drawer-footer">#REGION_POSITION_03#</div>',
+'</div>'))
 ,p_footer_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '#FORM_CLOSE#',
 '#DEVELOPER_TOOLBAR#',
@@ -56,7 +55,7 @@ wwv_flow_imp_shared.create_template(
 '#THEME_JAVASCRIPT#',
 '#TEMPLATE_JAVASCRIPT#',
 '#APPLICATION_JAVASCRIPT#',
-'#PAGE_JAVASCRIPT#',
+'#PAGE_JAVASCRIPT#  ',
 '#GENERATED_JAVASCRIPT#',
 '</body>',
 '</html>'))
@@ -96,7 +95,8 @@ wwv_flow_imp_shared.create_template(
 '</div>'))
 ,p_region_table_cattributes=>' summary="" cellpadding="0" border="0" cellspacing="0" width="100%"'
 ,p_breadcrumb_def_reg_pos=>'REGION_POSITION_01'
-,p_theme_class_id=>6
+,p_theme_class_id=>11
+,p_preset_template_options=>'js-dialog-class-t-Drawer--pullOutEnd'
 ,p_error_page_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div class="t-Alert t-Alert--danger t-Alert--wizard t-Alert--defaultIcons">',
 '  <div class="t-Alert-wrap">',
@@ -134,24 +134,18 @@ wwv_flow_imp_shared.create_template(
 ,p_grid_column_template=>'<div class="col col-#COLUMN_SPAN_NUMBER# #CSS_CLASSES# #FIRST_LAST_COLUMN_ATTRIBUTES#" #ATTRIBUTES#>#CONTENT#</div>'
 ,p_grid_first_column_attributes=>'col-start'
 ,p_grid_last_column_attributes=>'col-end'
+,p_dialog_js_init_code=>'apex.theme42.dialog(#PAGE_URL#,{title:#TITLE#,w:#DIALOG_WIDTH#,mxw:#DIALOG_MAX_WIDTH#,modal:#IS_MODAL#,dialog:#DIALOG#,dlgCls:''t-Drawer-page--standard ''+#DIALOG_CSS_CLASSES#,#DIALOG_ATTRIBUTES#},#PAGE_CSS_CLASSES#,#TRIGGERING_ELEMENT#)'
+,p_dialog_js_close_code=>'apex.theme42.dialog.close(#IS_MODAL#,#TARGET#)'
+,p_dialog_js_cancel_code=>'apex.theme42.dialog.cancel(#IS_MODAL#)'
+,p_dialog_height=>'auto'
+,p_dialog_width=>'720'
+,p_dialog_max_width=>'960'
 ,p_dialog_browser_frame=>'MODAL'
-,p_reference_id=>2099711150063350616
+,p_reference_id=>1659739787629394056
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(20915661600746827)
-,p_page_template_id=>wwv_flow_imp.id(65850871136281373)
-,p_name=>'Background Image'
-,p_placeholder=>'BACKGROUND_IMAGE'
-,p_has_grid_support=>false
-,p_has_region_support=>true
-,p_has_item_support=>false
-,p_has_button_support=>false
-,p_glv_new_row=>false
-,p_max_fixed_grid_columns=>12
-);
-wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(20916159414746827)
-,p_page_template_id=>wwv_flow_imp.id(65850871136281373)
+ p_id=>wwv_flow_imp.id(20963976232746843)
+,p_page_template_id=>wwv_flow_imp.id(20963466120746841)
 ,p_name=>'Content Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -162,9 +156,9 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(20916607343746827)
-,p_page_template_id=>wwv_flow_imp.id(65850871136281373)
-,p_name=>'Body Header'
+ p_id=>wwv_flow_imp.id(20964495638746844)
+,p_page_template_id=>wwv_flow_imp.id(20963466120746841)
+,p_name=>'Dialog Header'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
 ,p_has_region_support=>true
@@ -173,10 +167,10 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(20917143187746828)
-,p_page_template_id=>wwv_flow_imp.id(65850871136281373)
-,p_name=>'Body Footer'
-,p_placeholder=>'REGION_POSITION_02'
+ p_id=>wwv_flow_imp.id(20964931518746844)
+,p_page_template_id=>wwv_flow_imp.id(20963466120746841)
+,p_name=>'Dialog Footer'
+,p_placeholder=>'REGION_POSITION_03'
 ,p_has_grid_support=>false
 ,p_has_region_support=>true
 ,p_has_item_support=>false

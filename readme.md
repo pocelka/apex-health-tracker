@@ -21,4 +21,4 @@ Additional information can be found in the following subsections:
 ## Technologies
 
 - Oracle PL/SQL
-- Oracle APEX 21.1
+- Oracle APEX 22.1.0

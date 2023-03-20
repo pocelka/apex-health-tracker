@@ -12,8 +12,10 @@ prompt --install
 @@apex/application/shared_components/navigation/tabs/parent.sql
 @@apex/application/shared_components/user_interface/lovs/yes_no.sql
 @@apex/application/pages/page_groups.sql
+@@apex/application/comments.sql
 @@apex/application/shared_components/navigation/breadcrumbs/breadcrumb.sql
 @@apex/application/shared_components/navigation/breadcrumbentry.sql
+@@apex/application/shared_components/user_interface/templates/page/drawer.sql
 @@apex/application/shared_components/user_interface/templates/page/left_side_column.sql
 @@apex/application/shared_components/user_interface/templates/page/left_and_right_side_columns.sql
 @@apex/application/shared_components/user_interface/templates/page/login.sql
@@ -26,6 +28,8 @@ prompt --install
 @@apex/application/shared_components/user_interface/templates/button/icon.sql
 @@apex/application/shared_components/user_interface/templates/button/text.sql
 @@apex/application/shared_components/user_interface/templates/button/text_with_icon.sql
+@@apex/application/shared_components/user_interface/templates/region/inline_drawer.sql
+@@apex/application/shared_components/user_interface/templates/region/image.sql
 @@apex/application/shared_components/user_interface/templates/region/inline_popup.sql
 @@apex/application/shared_components/user_interface/templates/region/cards_container.sql
 @@apex/application/shared_components/user_interface/templates/region/alert.sql
@@ -81,10 +85,10 @@ prompt --install
 @@apex/application/shared_components/user_interface/themes.sql
 @@apex/application/shared_components/user_interface/theme_style.sql
 @@apex/application/shared_components/user_interface/theme_files.sql
-@@apex/application/shared_components/user_interface/theme_display_points.sql
 @@apex/application/shared_components/user_interface/template_opt_groups.sql
 @@apex/application/shared_components/user_interface/template_options.sql
 @@apex/application/shared_components/globalization/language.sql
+@@apex/application/shared_components/globalization/translations.sql
 @@apex/application/shared_components/logic/build_options.sql
 @@apex/application/shared_components/globalization/messages.sql
 @@apex/application/shared_components/globalization/dyntranslations.sql
