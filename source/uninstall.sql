@@ -11,8 +11,8 @@ spool uninstall.log
 whenever sqlerror exit failure rollback
 whenever oserror exit failure rollback
 
-accept tt_ws char prompt 'Provide APEX workspace name :'
-accept tt_app char prompt 'Provide application name :'
+accept tt_ws char prompt 'Provide APEX workspace name : '
+accept tt_app char prompt 'Provide application name : '
 
 
 declare

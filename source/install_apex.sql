@@ -11,8 +11,8 @@ prompt
 prompt Installing Time Tracker APEX (front end) components
 prompt
 
-accept tt_ws char prompt 'Provide APEX workspace name created by DBA :'
-accept tt_user char prompt 'Provide application schema name :'
+accept tt_ws char prompt 'Provide APEX workspace name created by DBA : '
+accept tt_user char prompt 'Provide application schema name : '
 
 declare
    l_workspace_id       number;
