@@ -46,7 +46,7 @@ To un-install back end and front end components execute the following script as 
 
 ```bash
 cd source
-sqlcl [connection string] @install_apex.sql
+sqlcl [connection string] @uninstall.sql
 ```
 
 If no errors are produced in ```uninstall.log```, application is considered as successfully uninstalled;
