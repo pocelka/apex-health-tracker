@@ -4,8 +4,8 @@ begin
 --     PAGE: 10041
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.04.12'
-,p_release=>'22.1.0'
+ p_version_yyyy_mm_dd=>'2022.10.07'
+,p_release=>'22.2.0'
 ,p_default_workspace_id=>3000436975541529
 ,p_default_application_id=>106
 ,p_default_id_offset=>55113874815241043
@@ -13,7 +13,6 @@ wwv_flow_imp.component_begin (
 );
 wwv_flow_imp_page.create_page(
  p_id=>10041
-,p_user_interface_id=>wwv_flow_imp.id(65901064690281398)
 ,p_name=>'Help'
 ,p_alias=>'PAGE_HELP'
 ,p_page_mode=>'MODAL'

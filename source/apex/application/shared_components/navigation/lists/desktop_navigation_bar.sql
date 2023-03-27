@@ -4,8 +4,8 @@ begin
 --     LIST: Desktop Navigation Bar
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.04.12'
-,p_release=>'22.1.0'
+ p_version_yyyy_mm_dd=>'2022.10.07'
+,p_release=>'22.2.0'
 ,p_default_workspace_id=>3000436975541529
 ,p_default_application_id=>106
 ,p_default_id_offset=>55113874815241043
@@ -15,6 +15,15 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(65901017919281398)
 ,p_name=>'Desktop Navigation Bar'
 ,p_list_status=>'PUBLIC'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(23204229855837940)
+,p_list_item_display_sequence=>1
+,p_list_item_link_text=>'Install App'
+,p_list_item_link_target=>'#action$a-pwa-install'
+,p_list_item_icon=>'fa-cloud-download'
+,p_list_text_02=>'a-pwaInstall'
+,p_list_item_current_type=>'NEVER'
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(51514884351464355)

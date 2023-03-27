@@ -4,8 +4,8 @@ begin
 --     PAGE: 00008
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.04.12'
-,p_release=>'22.1.0'
+ p_version_yyyy_mm_dd=>'2022.10.07'
+,p_release=>'22.2.0'
 ,p_default_workspace_id=>3000436975541529
 ,p_default_application_id=>106
 ,p_default_id_offset=>55113874815241043
@@ -13,7 +13,6 @@ wwv_flow_imp.component_begin (
 );
 wwv_flow_imp_page.create_page(
  p_id=>8
-,p_user_interface_id=>wwv_flow_imp.id(65901064690281398)
 ,p_name=>'Time Correction'
 ,p_step_title=>'Time Correction'
 ,p_autocomplete_on_off=>'OFF'
@@ -101,6 +100,7 @@ wwv_flow_imp_page.create_region_column(
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'ROWID'
 ,p_data_type=>'ROWID'
+,p_session_state_data_type=>'VARCHAR2'
 ,p_item_type=>'NATIVE_HIDDEN'
 ,p_display_sequence=>30
 ,p_attribute_01=>'Y'
@@ -139,6 +139,7 @@ wwv_flow_imp_page.create_region_column(
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'TASK_NAME'
 ,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>true
 ,p_item_type=>'NATIVE_DISPLAY_ONLY'
 ,p_heading=>'Task Name'
@@ -232,6 +233,7 @@ wwv_flow_imp_page.create_region_column(
 ,p_source_type=>'DB_COLUMN'
 ,p_source_expression=>'ADDITIONAL_INFO'
 ,p_data_type=>'VARCHAR2'
+,p_session_state_data_type=>'VARCHAR2'
 ,p_is_query_only=>false
 ,p_item_type=>'NATIVE_TEXTAREA'
 ,p_heading=>'Additional Info'
