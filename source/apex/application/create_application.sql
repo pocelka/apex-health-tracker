@@ -52,11 +52,13 @@ wwv_flow_imp.create_flow(
 ,p_auto_time_zone=>'Y'
 ,p_tokenize_row_search=>'N'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20230327181041'
+,p_last_upd_yyyymmddhh24miss=>'20230327191457'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
+,p_files_version=>11
 ,p_print_server_type=>'INSTANCE'
 ,p_is_pwa=>'Y'
 ,p_pwa_is_installable=>'Y'
+,p_pwa_manifest_description=>'This application is used to track time spend on individual projects / tasks.'
 ,p_pwa_manifest_display=>'standalone'
 ,p_pwa_manifest_orientation=>'any'
 ,p_pwa_apple_status_bar_style=>'black-translucent'

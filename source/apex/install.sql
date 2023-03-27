@@ -3,9 +3,15 @@ prompt --install
 @@application/delete_application.sql
 @@application/create_application.sql
 @@application/user_interfaces.sql
+@@application/shared_components/pwa/screenshots/login_screen.sql
+@@application/shared_components/pwa/screenshots/task_list.sql
+@@application/shared_components/pwa/screenshots/statistics.sql
 @@application/shared_components/navigation/lists/desktop_navigation_menu.sql
 @@application/shared_components/navigation/lists/desktop_navigation_bar.sql
 @@application/shared_components/navigation/lists/desktop_tasks_cards.sql
+@@application/shared_components/files/pwa_loging_jpg.sql
+@@application/shared_components/files/pwa_tasks_jpg.sql
+@@application/shared_components/files/pwa_statistics_jpg.sql
 @@application/plugin_settings.sql
 @@application/shared_components/navigation/navigation_bar.sql
 @@application/shared_components/logic/application_settings.sql
