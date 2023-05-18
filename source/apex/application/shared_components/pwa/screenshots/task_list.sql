@@ -5,14 +5,14 @@ begin
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.0'
-,p_default_workspace_id=>3000436975541529
-,p_default_application_id=>106
-,p_default_id_offset=>55113874815241043
+,p_release=>'22.2.4'
+,p_default_workspace_id=>9519534781980056
+,p_default_application_id=>100
+,p_default_id_offset=>75349645680530113
 ,p_default_owner=>'TIME_TRACKER'
 );
 wwv_flow_imp_shared.create_pwa_screenshot(
- p_id=>wwv_flow_imp.id(4401524356345424)
+ p_id=>wwv_flow_imp.id(24637295221634494)
 ,p_label=>'Task List'
 ,p_display_sequence=>20
 ,p_screenshot_url=>'pwa/tasks.jpg'

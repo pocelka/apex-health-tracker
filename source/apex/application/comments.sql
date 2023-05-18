@@ -1,7 +1,7 @@
-prompt --application/shared_components/navigation/tabs/standard
+prompt --application/comments
 begin
 --   Manifest
---     TABS: 100
+--     APPLICATION COMMENTS: 100
 --   Manifest End
 wwv_flow_imp.component_begin (
  p_version_yyyy_mm_dd=>'2022.10.07'
