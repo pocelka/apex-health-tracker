@@ -1,24 +1,13 @@
 # Introduction
 
-I'm working in the company where we are charging time spent on projects on bi-weekly basis and I'm lucky that overtimes are payed. This means that for me it is very important to know how much overtimes I have, when I have to submit my hours using company tools.
+This repository contains my personal applications created in Oracle Application Express (Apex). These applications can be self-host either on premises or in Oracle Cloud Infrastructure (OCI) - [OCI Free Tier](https://www.oracle.com/cloud/free/#always-free).
 
-Time Tracker is an Oracle APEX application which helps me to track how much time I spent working on project or specific task.
+## Installation
 
-Currently I'm using this application on daily basis hosted on [OCI Free Tier](https://www.oracle.com/cloud/free/) autonomous database.
+Applications can be installed under the new user or existing one. For new installation ask your DBA to create a new schema using create script:
 
-Additional information can be found in the following subsections:
+```bash
+sqlcl [connection string] as sysdba @create_user.sql
+```
 
-- [History](./docs/history.md)
-- [Installation & Un-Installation](./docs/installation.md)
-
-## Key Features
-
-- Global reporting to show statistics for time in last 3 days, last 3 weeks as global table detailing how much time I spent on each task over the weeks.
-- Easy task switching leveraging tasks displayed as cards
-- Multi user support (apex workspace users)
-- Time correction
-
-## Technologies
-
-- Oracle PL/SQL
-- Oracle APEX 22.2.0
+and afterwards new apex workspace should be created using this schema.

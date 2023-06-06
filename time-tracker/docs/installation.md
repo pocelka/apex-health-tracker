@@ -6,15 +6,6 @@ Installation & Un-installation follows standard approach when installing custom 
 - PL/SQL backend
 - APEX front end
 
-## User Creation (Optional)
-
-To create new user ask your DBA to create the following script:
-
-```bash
-cd source
-sqlcl [connection string] as sysdba @create_user.sql
-```
-
 ## PL/SQL Backend
 
 To install components, execute the following script as application owner:
