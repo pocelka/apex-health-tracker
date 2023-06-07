@@ -4,12 +4,12 @@ begin
 --     PAGE: 10040
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_page.create_page(
  p_id=>10040
@@ -25,14 +25,13 @@ wwv_flow_imp_page.create_page(
 ,p_last_upd_yyyymmddhh24miss=>'20210527221138'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(71754191174847175)
+ p_id=>wwv_flow_imp.id(81845282328112606)
 ,p_plug_name=>'About Application'
 ,p_region_template_options=>'#DEFAULT#:t-ContentBlock--padded:t-ContentBlock--h1:t-ContentBlock--lightBG'
-,p_plug_template=>wwv_flow_imp.id(86100168681570448)
+,p_plug_template=>wwv_flow_imp.id(96191259834835879)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_source=>'Under Construction'
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );

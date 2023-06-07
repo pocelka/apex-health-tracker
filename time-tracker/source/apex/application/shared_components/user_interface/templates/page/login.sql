@@ -4,15 +4,15 @@ begin
 --     TEMPLATE: LOGIN
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_template(
- p_id=>wwv_flow_imp.id(86086642001570443)
+ p_id=>wwv_flow_imp.id(96177733154835874)
 ,p_theme_id=>42
 ,p_name=>'Login'
 ,p_internal_name=>'LOGIN'
@@ -138,8 +138,8 @@ wwv_flow_imp_shared.create_template(
 ,p_reference_id=>2099711150063350616
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23946445612492298)
-,p_page_template_id=>wwv_flow_imp.id(86086642001570443)
+ p_id=>wwv_flow_imp.id(10481161241151560)
+,p_page_template_id=>wwv_flow_imp.id(96177733154835874)
 ,p_name=>'Background Image'
 ,p_placeholder=>'BACKGROUND_IMAGE'
 ,p_has_grid_support=>false
@@ -150,8 +150,8 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23946907461492298)
-,p_page_template_id=>wwv_flow_imp.id(86086642001570443)
+ p_id=>wwv_flow_imp.id(10481665672151560)
+,p_page_template_id=>wwv_flow_imp.id(96177733154835874)
 ,p_name=>'Content Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -162,8 +162,8 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23947377279492299)
-,p_page_template_id=>wwv_flow_imp.id(86086642001570443)
+ p_id=>wwv_flow_imp.id(10482148765151561)
+,p_page_template_id=>wwv_flow_imp.id(96177733154835874)
 ,p_name=>'Body Header'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
@@ -173,8 +173,8 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23947897038492299)
-,p_page_template_id=>wwv_flow_imp.id(86086642001570443)
+ p_id=>wwv_flow_imp.id(10482672892151561)
+,p_page_template_id=>wwv_flow_imp.id(96177733154835874)
 ,p_name=>'Body Footer'
 ,p_placeholder=>'REGION_POSITION_02'
 ,p_has_grid_support=>false

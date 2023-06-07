@@ -4,15 +4,15 @@ begin
 --     TEMPLATE: WIZARD_MODAL_DIALOG
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_template(
- p_id=>wwv_flow_imp.id(86090977838570445)
+ p_id=>wwv_flow_imp.id(96182068991835876)
 ,p_theme_id=>42
 ,p_name=>'Wizard Modal Dialog'
 ,p_internal_name=>'WIZARD_MODAL_DIALOG'
@@ -143,8 +143,8 @@ wwv_flow_imp_shared.create_template(
 ,p_reference_id=>2120348229686426515
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23952330089492300)
-,p_page_template_id=>wwv_flow_imp.id(86090977838570445)
+ p_id=>wwv_flow_imp.id(10531658236151597)
+,p_page_template_id=>wwv_flow_imp.id(96182068991835876)
 ,p_name=>'Wizard Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -155,8 +155,8 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_max_fixed_grid_columns=>12
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23952847849492300)
-,p_page_template_id=>wwv_flow_imp.id(86090977838570445)
+ p_id=>wwv_flow_imp.id(10532127495151597)
+,p_page_template_id=>wwv_flow_imp.id(96182068991835876)
 ,p_name=>'Wizard Progress Bar'
 ,p_placeholder=>'REGION_POSITION_01'
 ,p_has_grid_support=>false
@@ -166,8 +166,8 @@ wwv_flow_imp_shared.create_page_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_page_tmpl_display_point(
- p_id=>wwv_flow_imp.id(23953272294492301)
-,p_page_template_id=>wwv_flow_imp.id(86090977838570445)
+ p_id=>wwv_flow_imp.id(10532675822151597)
+,p_page_template_id=>wwv_flow_imp.id(96182068991835876)
 ,p_name=>'Wizard Buttons'
 ,p_placeholder=>'REGION_POSITION_03'
 ,p_has_grid_support=>false

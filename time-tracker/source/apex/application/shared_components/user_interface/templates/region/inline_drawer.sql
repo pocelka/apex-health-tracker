@@ -4,15 +4,15 @@ begin
 --     REGION TEMPLATE: INLINE_DRAWER
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_plug_template(
- p_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(51489001833301408)
 ,p_layout=>'TABLE'
 ,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div id="#REGION_STATIC_ID#_parent">',
@@ -50,8 +50,8 @@ wwv_flow_imp_shared.create_plug_template(
 ,p_translate_this_template=>'N'
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24009542031492320)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10668430879151705)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Region Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -61,8 +61,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24009991526492320)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10668992063151705)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Close'
 ,p_placeholder=>'CLOSE'
 ,p_has_grid_support=>false
@@ -72,8 +72,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24010485301492320)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10669420580151706)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Create'
 ,p_placeholder=>'CREATE'
 ,p_has_grid_support=>false
@@ -83,8 +83,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24011004996492320)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10669905866151706)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Delete'
 ,p_placeholder=>'DELETE'
 ,p_has_grid_support=>false
@@ -94,8 +94,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24011527372492321)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10670491530151706)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Edit'
 ,p_placeholder=>'EDIT'
 ,p_has_grid_support=>false
@@ -105,8 +105,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24012013673492321)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10670935648151706)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Next'
 ,p_placeholder=>'NEXT'
 ,p_has_grid_support=>false
@@ -116,8 +116,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24012534448492321)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10671485980151707)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Previous'
 ,p_placeholder=>'PREVIOUS'
 ,p_has_grid_support=>false
@@ -127,8 +127,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24013053631492321)
-,p_plug_template_id=>wwv_flow_imp.id(41397910680035977)
+ p_id=>wwv_flow_imp.id(10671980330151707)
+,p_plug_template_id=>wwv_flow_imp.id(51489001833301408)
 ,p_name=>'Sub Regions'
 ,p_placeholder=>'SUB_REGIONS'
 ,p_has_grid_support=>true

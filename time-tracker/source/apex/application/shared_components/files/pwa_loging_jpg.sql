@@ -1,15 +1,15 @@
 prompt --application/shared_components/files/pwa_loging_jpg
 begin
 --   Manifest
---     APP STATIC FILES: 100
+--     APP STATIC FILES: 104
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp.g_varchar2_table := wwv_flow_imp.empty_varchar2_table;
 wwv_flow_imp.g_varchar2_table(1) := 'FFD8FFE000104A46494600010100000100010000FFDB004300090607080706090808080A0A090B0E170F0E0D0D0E1C14151117221E2323211E2020252A352D2527322820202E3F2F3237393C3C3C242D4246413A46353B3C39FFDB0043010A0A0A0E0C0E';
@@ -651,15 +651,15 @@ end;
 /
 begin
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_app_static_file(
- p_id=>wwv_flow_imp.id(25038099235875718)
+ p_id=>wwv_flow_imp.id(35129190389141149)
 ,p_file_name=>'pwa/loging.jpg'
 ,p_mime_type=>'image/jpeg'
 ,p_file_charset=>'utf-8'

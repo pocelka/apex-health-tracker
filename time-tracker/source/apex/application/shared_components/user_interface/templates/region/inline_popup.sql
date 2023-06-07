@@ -4,15 +4,15 @@ begin
 --     REGION TEMPLATE: INLINE_POPUP
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2022.10.07'
-,p_release=>'22.2.4'
-,p_default_workspace_id=>9519534781980056
-,p_default_application_id=>100
-,p_default_id_offset=>75349645680530113
-,p_default_owner=>'TIME_TRACKER'
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>104
+,p_default_id_offset=>85440736833795544
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_plug_template(
- p_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(81143658058714731)
 ,p_layout=>'TABLE'
 ,p_template=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<div id="#REGION_STATIC_ID#_parent">',
@@ -41,8 +41,8 @@ wwv_flow_imp_shared.create_plug_template(
 ,p_translate_this_template=>'N'
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24034980310492329)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10680764181151714)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Region Body'
 ,p_placeholder=>'BODY'
 ,p_has_grid_support=>true
@@ -52,8 +52,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24035473949492329)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10681290343151715)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Close'
 ,p_placeholder=>'CLOSE'
 ,p_has_grid_support=>false
@@ -63,8 +63,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24036007707492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10681755863151715)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Create'
 ,p_placeholder=>'CREATE'
 ,p_has_grid_support=>false
@@ -74,8 +74,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24036562564492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10682282966151715)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Delete'
 ,p_placeholder=>'DELETE'
 ,p_has_grid_support=>false
@@ -85,8 +85,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24036995868492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10682700392151715)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Edit'
 ,p_placeholder=>'EDIT'
 ,p_has_grid_support=>false
@@ -96,8 +96,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24037552966492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10683273228151716)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Next'
 ,p_placeholder=>'NEXT'
 ,p_has_grid_support=>false
@@ -107,8 +107,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24037982721492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10683769384151716)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Previous'
 ,p_placeholder=>'PREVIOUS'
 ,p_has_grid_support=>false
@@ -118,8 +118,8 @@ wwv_flow_imp_shared.create_plug_tmpl_display_point(
 ,p_glv_new_row=>true
 );
 wwv_flow_imp_shared.create_plug_tmpl_display_point(
- p_id=>wwv_flow_imp.id(24038515291492330)
-,p_plug_template_id=>wwv_flow_imp.id(71052566905449300)
+ p_id=>wwv_flow_imp.id(10684244606151716)
+,p_plug_template_id=>wwv_flow_imp.id(81143658058714731)
 ,p_name=>'Sub Regions'
 ,p_placeholder=>'SUB_REGIONS'
 ,p_has_grid_support=>true

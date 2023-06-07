@@ -9,6 +9,11 @@ prompt --install
 @@application/shared_components/navigation/lists/desktop_navigation_menu.sql
 @@application/shared_components/navigation/lists/desktop_navigation_bar.sql
 @@application/shared_components/navigation/lists/desktop_tasks_cards.sql
+@@application/shared_components/files/icons_app_icon_32_png.sql
+@@application/shared_components/files/icons_app_icon_144_rounded_png.sql
+@@application/shared_components/files/icons_app_icon_192_png.sql
+@@application/shared_components/files/icons_app_icon_256_rounded_png.sql
+@@application/shared_components/files/icons_app_icon_512_png.sql
 @@application/shared_components/files/pwa_loging_jpg.sql
 @@application/shared_components/files/pwa_tasks_jpg.sql
 @@application/shared_components/files/pwa_statistics_jpg.sql
@@ -19,7 +24,6 @@ prompt --install
 @@application/shared_components/navigation/tabs/parent.sql
 @@application/shared_components/user_interface/lovs/yes_no.sql
 @@application/pages/page_groups.sql
-@@application/comments.sql
 @@application/shared_components/navigation/breadcrumbs/breadcrumb.sql
 @@application/shared_components/navigation/breadcrumbentry.sql
 @@application/shared_components/user_interface/templates/page/drawer.sql
@@ -97,12 +101,18 @@ prompt --install
 @@application/shared_components/user_interface/template_opt_groups.sql
 @@application/shared_components/user_interface/template_options.sql
 @@application/shared_components/globalization/language.sql
-@@application/shared_components/globalization/translations.sql
 @@application/shared_components/logic/build_options.sql
 @@application/shared_components/globalization/messages.sql
 @@application/shared_components/globalization/dyntranslations.sql
 @@application/shared_components/user_interface/shortcuts/delete_confirm_msg.sql
 @@application/shared_components/security/authentications/application_express_authentication.sql
+@@application/shared_components/plugins/template_component/theme_42_avatar.sql
+@@application/shared_components/plugins/template_component/theme_42_badge.sql
+@@application/shared_components/plugins/template_component/theme_42_comments.sql
+@@application/shared_components/plugins/template_component/theme_42_button.sql
+@@application/shared_components/plugins/template_component/theme_42_timeline.sql
+@@application/shared_components/plugins/template_component/theme_42_content_row.sql
+@@application/shared_components/plugins/template_component/theme_42_media_list.sql
 @@application/user_interfaces/combined_files.sql
 @@application/pages/page_00001.sql
 @@application/pages/page_00002.sql
@@ -114,4 +124,7 @@ prompt --install
 @@application/pages/page_00101.sql
 @@application/pages/page_10040.sql
 @@application/pages/page_10041.sql
+@@application/deployment/definition.sql
+@@application/deployment/checks.sql
+@@application/deployment/buildoptions.sql
 @@application/end_environment.sql
