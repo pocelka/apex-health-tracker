@@ -31,4 +31,4 @@ begin
 end;
 /
 
-@@install_apex_application.sql
+@@apex/f103/application/install.sql

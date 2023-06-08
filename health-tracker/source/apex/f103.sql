@@ -33,13 +33,13 @@ prompt APPLICATION 103 - Health Tracker
 -- Application Export:
 --   Application:     103
 --   Name:            Health Tracker
---   Date and Time:   07:46 Wednesday June 7, 2023
+--   Date and Time:   07:19 Thursday June 8, 2023
 --   Exported By:     DEV
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
---       Items:                   18
---       Computations:             2
+--       Items:                   17
+--       Computations:             1
 --       Processes:               10
 --       Regions:                 15
 --       Buttons:                  7
@@ -122,7 +122,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Health Tracker'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230606083656'
+,p_last_upd_yyyymmddhh24miss=>'20230608071447'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>7
 ,p_print_server_type=>'NATIVE'
@@ -17744,7 +17744,7 @@ wwv_flow_imp_page.create_page(
 ''))
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230601094857'
+,p_last_upd_yyyymmddhh24miss=>'20230608071447'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29439167104520112)
@@ -17829,7 +17829,6 @@ wwv_flow_imp_page.create_jet_chart_series(
 'order by created desc',
 ';',
 ''))
-,p_ajax_items_to_submit=>'P1_LAST_WEIGHT'
 ,p_items_value_column_name=>'WEIGHT'
 ,p_items_label_column_name=>'CREATED'
 ,p_line_style=>'solid'
@@ -18543,14 +18542,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_attribute_01=>'Y'
 );
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(29442000162520141)
-,p_name=>'P1_FIRST_WEIGHT'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(29440237707520123)
-,p_display_as=>'NATIVE_HIDDEN'
-,p_attribute_01=>'Y'
-);
 wwv_flow_imp_page.create_page_computation(
  p_id=>wwv_flow_imp.id(29441737698520138)
 ,p_computation_sequence=>10
@@ -18565,22 +18556,6 @@ wwv_flow_imp_page.create_page_computation(
 'and created_by = coalesce(sys_context(''APEX$SESSION'', ''APP_USER''), user)',
 'order by ',
 '   created desc',
-'fetch first 1 rows only'))
-);
-wwv_flow_imp_page.create_page_computation(
- p_id=>wwv_flow_imp.id(29442153429520142)
-,p_computation_sequence=>20
-,p_computation_item=>'P1_FIRST_WEIGHT'
-,p_computation_point=>'BEFORE_BOX_BODY'
-,p_computation_type=>'QUERY'
-,p_computation=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'select weight',
-'from ht_weight',
-'where 1 = 1',
-'and ignore_flg = ''N''',
-'and created_by = coalesce(sys_context(''APEX$SESSION'', ''APP_USER''), user)',
-'order by ',
-'   created',
 'fetch first 1 rows only'))
 );
 wwv_flow_imp_page.create_page_da_event(
