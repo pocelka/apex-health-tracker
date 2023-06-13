@@ -33,14 +33,14 @@ prompt APPLICATION 103 - Health Tracker
 -- Application Export:
 --   Application:     103
 --   Name:            Health Tracker
---   Date and Time:   13:14 Tuesday June 13, 2023
+--   Date and Time:   22:10 Tuesday June 13, 2023
 --   Exported By:     DEV
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
---       Items:                   17
+--       Items:                   18
 --       Computations:             1
---       Processes:               10
+--       Processes:               11
 --       Regions:                 15
 --       Buttons:                  7
 --       Dynamic Actions:          4
@@ -95,7 +95,7 @@ wwv_imp_workspace.create_flow(
 ,p_compatibility_mode=>'21.2'
 ,p_session_state_commits=>'IMMEDIATE'
 ,p_flow_language=>'en'
-,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
+,p_flow_language_derived_from=>'SESSION'
 ,p_allow_feedback_yn=>'Y'
 ,p_date_format=>'DS'
 ,p_timestamp_format=>'DS'
@@ -122,9 +122,9 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Health Tracker'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230613131417'
+,p_last_upd_yyyymmddhh24miss=>'20230613195939'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
-,p_files_version=>7
+,p_files_version=>13
 ,p_print_server_type=>'NATIVE'
 ,p_is_pwa=>'Y'
 ,p_pwa_is_installable=>'Y'
@@ -217,7 +217,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30250805341325410)
-,p_list_item_display_sequence=>50
+,p_list_item_display_sequence=>800
 ,p_list_item_link_text=>'About Application'
 ,p_list_item_link_target=>'f?p=&APP_ID.:10010:&APP_SESSION.::&DEBUG.:10010::'
 ,p_list_item_icon=>'fa-info-circle-o'
@@ -227,7 +227,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30251174916325410)
-,p_list_item_display_sequence=>60
+,p_list_item_display_sequence=>700
 ,p_list_item_link_text=>'&APP_USER.'
 ,p_list_item_link_target=>'#'
 ,p_list_item_icon=>'fa-user'
@@ -236,7 +236,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30251674309325411)
-,p_list_item_display_sequence=>70
+,p_list_item_display_sequence=>899
 ,p_list_item_link_text=>'---'
 ,p_list_item_link_target=>'separator'
 ,p_parent_list_item_id=>wwv_flow_imp.id(30251174916325410)
@@ -244,7 +244,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30252048079325411)
-,p_list_item_display_sequence=>80
+,p_list_item_display_sequence=>900
 ,p_list_item_link_text=>'Sign Out'
 ,p_list_item_link_target=>'&LOGOUT_URL.'
 ,p_list_item_icon=>'fa-sign-out'
@@ -15410,35 +15410,67 @@ wwv_flow_imp_shared.create_translation(
 ,p_translation_specific_to_item=>'NO'
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'for l_page in ( select page_title,',
-'                       help_text',
-'                  from apex_application_pages',
-'                 where application_id = :APP_ID',
-'                   and page_id = :P10011_PAGE_ID )',
+'for l_page in (select ',
+'                  ap.page_title,',
+'                  coalesce(trn.to_string, ap.help_text)     as help_text',
+'               from apex_application_pages ap',
+'               left join apex_application_trans_map trnm',
+'                  on 1 = 1',
+'                  and trnm.primary_application_id = ap.application_id',
+'                  and trnm.translated_app_language = apex_util.get_session_lang',
+'               left join apex_application_trans_repos trn',
+'                  on 1 = 1',
+'                  and trn.translated_application_id = trnm.translated_application_id',
+'                  and trn.application_id = ap.application_id',
+'                  and trn.application_page_id = ap.page_id',
+'                  and trn.internal_attribute_name = ''APEX_PAGES.HELP_TEXT''',
+'               where 1 = 1',
+'               and ap.application_id = :APP_ID',
+'               and ap.page_id = :P10011_PAGE_ID)',
 'loop',
-'    if l_page.help_text is null then',
-'        return ''No help is available for this page.'';',
-'    else',
-'        return case when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' end ||',
-'               apex_application.do_substitutions(l_page.help_text) ||',
-'               case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
+'   if l_page.help_text is null then',
+'      return ''No help is available for this page.'';',
+'   else',
+'      return case ',
+'               when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' ',
+'             end ',
+'             || apex_application.do_substitutions(l_page.help_text) ',
+'             || case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
 '    end if;',
-'end loop;'))
+'    ',
+'end loop;',
+''))
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'for l_page in ( select page_title,',
-'                       help_text',
-'                  from apex_application_pages',
-'                 where application_id = :APP_ID',
-'                   and page_id = :P10011_PAGE_ID )',
+'for l_page in (select ',
+'                  ap.page_title,',
+'                  coalesce(trn.to_string, ap.help_text)     as help_text',
+'               from apex_application_pages ap',
+'               left join apex_application_trans_map trnm',
+'                  on 1 = 1',
+'                  and trnm.primary_application_id = ap.application_id',
+'                  and trnm.translated_app_language = apex_util.get_session_lang',
+'               left join apex_application_trans_repos trn',
+'                  on 1 = 1',
+'                  and trn.translated_application_id = trnm.translated_application_id',
+'                  and trn.application_id = ap.application_id',
+'                  and trn.application_page_id = ap.page_id',
+'                  and trn.internal_attribute_name = ''APEX_PAGES.HELP_TEXT''',
+'               where 1 = 1',
+'               and ap.application_id = :APP_ID',
+'               and ap.page_id = :P10011_PAGE_ID)',
 'loop',
-'    if l_page.help_text is null then',
-'        return ''No help is available for this page.'';',
-'    else',
-'        return case when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' end ||',
-'               apex_application.do_substitutions(l_page.help_text) ||',
-'               case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
+'   if l_page.help_text is null then',
+'      return ''No help is available for this page.'';',
+'   else',
+'      return case ',
+'               when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' ',
+'             end ',
+'             || apex_application.do_substitutions(l_page.help_text) ',
+'             || case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
 '    end if;',
-'end loop;'))
+'    ',
+'end loop;',
+''))
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12144945596244496)
@@ -15488,6 +15520,9 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>unistr('Pomoc k str\00E1nke')
 ,p_translate_from_text=>'Page Help'
 );
+end;
+/
+begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12145628565244497)
 ,p_translated_flow_id=>1000103
@@ -15524,9 +15559,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'&APP_USER.'
 ,p_translate_from_text=>'&APP_USER.'
 );
-end;
-/
-begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12146275329244497)
 ,p_translated_flow_id=>1000103
@@ -16370,6 +16402,9 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'N'
 ,p_translate_from_text=>'N'
 );
+end;
+/
+begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12159092018245301)
 ,p_page_id=>4
@@ -16409,9 +16444,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'left'
 ,p_translate_from_text=>'left'
 );
-end;
-/
-begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12159661626245301)
 ,p_page_id=>4
@@ -17309,6 +17341,9 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'has-username'
 ,p_translate_from_text=>'has-username'
 );
+end;
+/
+begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12173562447245737)
 ,p_page_id=>9999
@@ -17348,9 +17383,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>unistr('Atu\00E1lna v\00E1ha: &P1_LAST_WEIGHT.')
 ,p_translate_from_text=>'Current Weight: &P1_LAST_WEIGHT.'
 );
-end;
-/
-begin
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12173908666245947)
 ,p_page_id=>1
@@ -18018,6 +18050,45 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<li class="t-Badges-item" #APEX$ROW_IDENTIFICATION#>#APEX$PARTIAL#</li>',
 ''))
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(12246847049443103)
+,p_page_id=>9999
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(12210419710921709.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(12210419710921709)
+,p_translate_column_id=>14
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Language'
+,p_translate_from_text=>'Language'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(12247177225443314)
+,p_page_id=>9999
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(12210419710921709.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(12210419710921709)
+,p_translate_column_id=>268
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'1'
+,p_translate_from_text=>'1'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(12247240196443319)
+,p_page_id=>9999
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(12210419710921709.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(12210419710921709)
+,p_translate_column_id=>269
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'NONE'
+,p_translate_from_text=>'NONE'
 );
 end;
 /
@@ -22671,7 +22742,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'12'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230522073753'
+,p_last_upd_yyyymmddhh24miss=>'20230613184941'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(30226928590325329)
@@ -22698,6 +22769,21 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_alignment=>'LEFT'
 ,p_grid_new_row=>'Y'
 ,p_grid_new_column=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(12210419710921709)
+,p_name=>'P9999_LANGUAGE'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(30226928590325329)
+,p_item_default=>'sk'
+,p_prompt=>'Language'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC:Slovak;sk,English;en'
+,p_field_template=>wwv_flow_imp.id(30194953604325228)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(30227455944325338)
@@ -22740,33 +22826,29 @@ wwv_flow_imp_page.create_page_item(
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(30228204806325341)
 ,p_name=>'P9999_REMEMBER'
-,p_item_sequence=>30
+,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_imp.id(30226928590325329)
 ,p_prompt=>'Remember username'
 ,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
-,p_label_alignment=>'RIGHT'
 ,p_display_when=>'apex_authentication.persistent_cookies_enabled and not apex_authentication.persistent_auth_enabled'
 ,p_display_when2=>'PLSQL'
 ,p_display_when_type=>'EXPRESSION'
 ,p_field_template=>wwv_flow_imp.id(30194953604325228)
 ,p_item_template_options=>'#DEFAULT#'
-,p_escape_on_http_output=>'N'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(30228642305325342)
 ,p_name=>'P9999_PERSISTENT_AUTH'
-,p_item_sequence=>30
+,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(30226928590325329)
 ,p_prompt=>'Remember me'
 ,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
-,p_label_alignment=>'RIGHT'
 ,p_display_when=>'apex_authentication.persistent_auth_enabled'
 ,p_display_when2=>'PLSQL'
 ,p_display_when_type=>'EXPRESSION'
 ,p_field_template=>wwv_flow_imp.id(30194953604325228)
 ,p_item_template_options=>'#DEFAULT#'
-,p_escape_on_http_output=>'N'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_process(
@@ -22855,8 +22937,19 @@ wwv_flow_imp_shared.create_invokeapi_comp_param(
 ,p_value=>'P9999_PERSISTENT_AUTH'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(30233134465325349)
+ p_id=>wwv_flow_imp.id(12209616359921701)
 ,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'Set default language'
+,p_process_sql_clob=>'apex_util.set_session_lang(p_lang => :P9999_LANGUAGE);'
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>12209616359921701
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(30233134465325349)
+,p_process_sequence=>40
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_SESSION_STATE'
 ,p_process_name=>'Clear Page(s) Cache'
@@ -22931,31 +23024,46 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'25'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230522073754'
+,p_last_upd_yyyymmddhh24miss=>'20230613193419'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(30248322425325406)
 ,p_plug_name=>'Search Dialog'
 ,p_region_template_options=>'#DEFAULT#'
-,p_escape_on_http_output=>'Y'
 ,p_plug_template=>wwv_flow_imp.id(30058890733325136)
 ,p_plug_display_sequence=>10
 ,p_function_body_language=>'PLSQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'for l_page in ( select page_title,',
-'                       help_text',
-'                  from apex_application_pages',
-'                 where application_id = :APP_ID',
-'                   and page_id = :P10011_PAGE_ID )',
+'for l_page in (select ',
+'                  ap.page_title,',
+'                  coalesce(trn.to_string, ap.help_text)     as help_text',
+'               from apex_application_pages ap',
+'               left join apex_application_trans_map trnm',
+'                  on 1 = 1',
+'                  and trnm.primary_application_id = ap.application_id',
+'                  and trnm.translated_app_language = apex_util.get_session_lang',
+'               left join apex_application_trans_repos trn',
+'                  on 1 = 1',
+'                  and trn.translated_application_id = trnm.translated_application_id',
+'                  and trn.application_id = ap.application_id',
+'                  and trn.application_page_id = ap.page_id',
+'                  and trn.internal_attribute_name = ''APEX_PAGES.HELP_TEXT''',
+'               where 1 = 1',
+'               and ap.application_id = :APP_ID',
+'               and ap.page_id = :P10011_PAGE_ID)',
 'loop',
-'    if l_page.help_text is null then',
-'        return ''No help is available for this page.'';',
-'    else',
-'        return case when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' end ||',
-'               apex_application.do_substitutions(l_page.help_text) ||',
-'               case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
+'   if l_page.help_text is null then',
+'      return ''No help is available for this page.'';',
+'   else',
+'      return case ',
+'               when substr(l_page.help_text, 1, 3) != ''<p>'' then ''<p>'' ',
+'             end ',
+'             || apex_application.do_substitutions(l_page.help_text) ',
+'             || case when substr(trim(l_page.help_text), -4) != ''</p>'' then ''</p>'' end;',
 '    end if;',
-'end loop;'))
+'    ',
+'end loop;',
+''))
 ,p_plug_source_type=>'NATIVE_DYNAMIC_CONTENT'
 ,p_plug_query_num_rows=>15
 );

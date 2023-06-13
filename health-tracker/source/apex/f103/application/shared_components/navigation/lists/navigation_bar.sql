@@ -55,7 +55,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30250805341325410)
-,p_list_item_display_sequence=>50
+,p_list_item_display_sequence=>800
 ,p_list_item_link_text=>'About Application'
 ,p_list_item_link_target=>'f?p=&APP_ID.:10010:&APP_SESSION.::&DEBUG.:10010::'
 ,p_list_item_icon=>'fa-info-circle-o'
@@ -65,7 +65,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30251174916325410)
-,p_list_item_display_sequence=>60
+,p_list_item_display_sequence=>700
 ,p_list_item_link_text=>'&APP_USER.'
 ,p_list_item_link_target=>'#'
 ,p_list_item_icon=>'fa-user'
@@ -74,7 +74,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30251674309325411)
-,p_list_item_display_sequence=>70
+,p_list_item_display_sequence=>899
 ,p_list_item_link_text=>'---'
 ,p_list_item_link_target=>'separator'
 ,p_parent_list_item_id=>wwv_flow_imp.id(30251174916325410)
@@ -82,7 +82,7 @@ wwv_flow_imp_shared.create_list_item(
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(30252048079325411)
-,p_list_item_display_sequence=>80
+,p_list_item_display_sequence=>900
 ,p_list_item_link_text=>'Sign Out'
 ,p_list_item_link_target=>'&LOGOUT_URL.'
 ,p_list_item_icon=>'fa-sign-out'
