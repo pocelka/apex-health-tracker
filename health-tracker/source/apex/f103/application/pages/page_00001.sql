@@ -33,7 +33,7 @@ wwv_flow_imp_page.create_page(
 ''))
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230608071447'
+,p_last_upd_yyyymmddhh24miss=>'20230608080831'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29439167104520112)
@@ -118,6 +118,7 @@ wwv_flow_imp_page.create_jet_chart_series(
 'order by created desc',
 ';',
 ''))
+,p_ajax_items_to_submit=>'P1_LAST_WEIGHT'
 ,p_items_value_column_name=>'WEIGHT'
 ,p_items_label_column_name=>'CREATED'
 ,p_line_style=>'solid'
@@ -474,6 +475,15 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_is_default=>'Y'
 ,p_report_columns=>'CREATED:WEIGHT:NOTES'
 );
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(30340231238557303)
+,p_application_user=>'DEV'
+,p_name=>'First 10 Rows'
+,p_description=>'Shows first 10 rows of the report.'
+,p_report_seq=>10
+,p_display_rows=>10
+,p_report_columns=>'CREATED:WEIGHT:NOTES'
+);
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29440103987520122)
 ,p_plug_name=>'Blood Pressure'
@@ -795,6 +805,125 @@ wwv_flow_imp_page.create_worksheet_condition(
 ,p_highlight_sequence=>10
 ,p_column_bg_color=>'#fafd77'
 );
+wwv_flow_imp_page.create_worksheet_rpt(
+ p_id=>wwv_flow_imp.id(30360749618881701)
+,p_application_user=>'DEV'
+,p_name=>'First 25 Rows'
+,p_description=>'Displays first 25 rows.'
+,p_report_seq=>10
+,p_display_rows=>25
+,p_report_columns=>'CREATED:SYSTOLIC:DIASTOLIC:PULSE:ARRHYTHMIA:NOTES:'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30360819403881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Bottom: Stage 1 - Hypertension'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'DIASTOLIC'
+,p_operator=>'between'
+,p_expr=>'80'
+,p_expr2=>'89'
+,p_condition_sql=>' (case when ("DIASTOLIC" between to_number(#APXWS_EXPR#) and to_number(#APXWS_EXPR2#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME# #APXWS_EXPR_NUMBER# #APXWS_AND# #APXWS_EXPR2_NUMBER#'
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#fee161'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30360902897881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Bottom: Stage 2 - Hypertension'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'DIASTOLIC'
+,p_operator=>'between'
+,p_expr=>'90'
+,p_expr2=>'119'
+,p_condition_sql=>' (case when ("DIASTOLIC" between to_number(#APXWS_EXPR#) and to_number(#APXWS_EXPR2#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME# #APXWS_EXPR_NUMBER# #APXWS_AND# #APXWS_EXPR2_NUMBER#'
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#fd8f8f'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30361032441881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Top: Cirtical'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'SYSTOLIC'
+,p_operator=>'>='
+,p_expr=>'180'
+,p_condition_sql=>' (case when ("SYSTOLIC" >= to_number(#APXWS_EXPR#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# >= #APXWS_EXPR_NUMBER#  '
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#bc0707'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30361133921881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Top: Stage 1 - Hypertension'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'SYSTOLIC'
+,p_operator=>'between'
+,p_expr=>'130'
+,p_expr2=>'139'
+,p_condition_sql=>' (case when ("SYSTOLIC" between to_number(#APXWS_EXPR#) and to_number(#APXWS_EXPR2#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME# #APXWS_EXPR_NUMBER# #APXWS_AND# #APXWS_EXPR2_NUMBER#'
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#fee161'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30361234737881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Bottom: Critical'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'DIASTOLIC'
+,p_operator=>'>='
+,p_expr=>'120'
+,p_condition_sql=>' (case when ("DIASTOLIC" >= to_number(#APXWS_EXPR#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# >= #APXWS_EXPR_NUMBER#  '
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_row_bg_color=>'#bc0707'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30361397910881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Top: Elevated'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'SYSTOLIC'
+,p_operator=>'between'
+,p_expr=>'120'
+,p_expr2=>'129'
+,p_condition_sql=>' (case when ("SYSTOLIC" between to_number(#APXWS_EXPR#) and to_number(#APXWS_EXPR2#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME# #APXWS_EXPR_NUMBER# #APXWS_AND# #APXWS_EXPR2_NUMBER#'
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#fafd77'
+);
+wwv_flow_imp_page.create_worksheet_condition(
+ p_id=>wwv_flow_imp.id(30361405748881701)
+,p_report_id=>wwv_flow_imp.id(30360749618881701)
+,p_name=>'Top: Stage 2'
+,p_condition_type=>'HIGHLIGHT'
+,p_allow_delete=>'Y'
+,p_column_name=>'SYSTOLIC'
+,p_operator=>'between'
+,p_expr=>'140'
+,p_expr2=>'179'
+,p_condition_sql=>' (case when ("SYSTOLIC" between to_number(#APXWS_EXPR#) and to_number(#APXWS_EXPR2#)) then #APXWS_HL_ID# end) '
+,p_condition_display=>'#APXWS_COL_NAME# #APXWS_OP_NAME# #APXWS_EXPR_NUMBER# #APXWS_AND# #APXWS_EXPR2_NUMBER#'
+,p_enabled=>'Y'
+,p_highlight_sequence=>10
+,p_column_bg_color=>'#fd8f8f'
+);
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(29441295679520133)
 ,p_button_sequence=>10
@@ -888,6 +1017,18 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'apexafterclosedialog'
+);
+wwv_flow_imp.component_end;
+end;
+/
+begin
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2023.04.28'
+,p_release=>'23.1.0'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(30331343279428650)
