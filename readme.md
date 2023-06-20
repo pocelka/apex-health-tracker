@@ -1,13 +1,12 @@
+<!-- markdownlint-disable no-inline-html -->
 # Introduction
 
-This repository contains my personal applications created in Oracle Application Express (Apex). These applications can be self-host either on premises or in Oracle Cloud Infrastructure (OCI) - [OCI Free Tier](https://www.oracle.com/cloud/free/#always-free).
+Health Tracker is an application which I'm using to track weight and blood pressure and progress in losing weight.
 
-## Installation
+There are multiple applications which I could use, however all of the applications own my data and therefore could be considered as security risk. Since I created this application it also doesn't contain any adds which is a nice plus. Application currently supports English and Slovak speaking people and can be used on mobile devices as well as on desktops.
 
-Applications can be installed under the new user or existing one. For new installation ask your DBA to create a new schema using create script:
+Example of the the application visuals:
 
-```bash
-sqlcl [connection string] as sysdba @create_user.sql
-```
-
-and afterwards new apex workspace should be created using this schema.
+<p align="center">
+    <img src="./docs/img/bp_stats.png" />
+</p>
