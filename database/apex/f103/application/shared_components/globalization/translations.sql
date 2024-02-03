@@ -4,8 +4,8 @@ begin
 --     TRANSLATIONS: 103
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
 ,p_default_workspace_id=>29631720813958193
 ,p_default_application_id=>103
 ,p_default_id_offset=>0
@@ -204,22 +204,26 @@ wwv_flow_imp_shared.create_translation(
 ,p_translation_specific_to_item=>'NO'
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-unistr('T\00E1to str\00E1nka poskytuje 360 stup\0148ov\00FD poh\013Ead na osobn\00E9 \0161tatistiky. '),
-'<br>',
-unistr('U\017E\00EDvate\013E m\00F4\017Ee:'),
-'<br>',
+'<p>',
+unistr('    T\00E1to str\00E1nka poskytuje 360 stup\0148ov\00FD n\00E1h\013Ead na osobn\00E9 \0161tatistiky. '),
+'    <br>',
+unistr('    U\017E\00EDvate\013E m\00F4\017Ee:'),
+'    <br>',
+'</p>',
 '',
 '<ul>',
-unistr('    <li>Prep\00EDna\0165 medzi jednotliv\00FDm z\00E1lo\017Ekami.</li>'),
-unistr('    <li>Pozera\0165 historick\00E9 d\00E1ta vo form\00E1te grafov alebo tabuliek.</li>'),
-unistr('    <li>Prid\00E1va\0165 nov\00E9 \00FAdaje.</li>'),
+unistr('    <li>Prep\00EDna\0165 medzi z\00E1lo\017Ekami.</li>'),
+unistr('    <li>Vidie\0165 historick\00E9 d\00E1ta vo forme grafu a tabuliek.</li>'),
+unistr('    <li>Prid\00E1va\0165 nov\00E9 z\00E1znamy.</li>'),
 '</ul>',
 ''))
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'This page is used to provide 360 degree overview of personal health statistics. ',
-'<br>',
-'User can:',
-'<br>',
+'<p>',
+'    This page is used to provide 360 degree overview of personal health statistics. ',
+'    <br>',
+'    User can:',
+'    <br>',
+'</p>',
 '',
 '<ul>',
 '    <li>Switch between different tabs.</li>',
@@ -528,19 +532,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_from_text=>'Weight'
 );
 wwv_flow_imp_shared.create_translation(
- p_id=>wwv_flow_imp.id(12141357053244464)
-,p_page_id=>1
-,p_translated_flow_id=>1000103
-,p_translate_to_id=>wwv_flow_imp.id(29440327700520124.1000103)
-,p_translate_from_id=>wwv_flow_imp.id(29440327700520124)
-,p_translate_column_id=>20
-,p_translate_to_lang_code=>'sk'
-,p_translation_specific_to_item=>'NO'
-,p_template_translatable=>'Y'
-,p_translate_to_text=>'Tlak'
-,p_translate_from_text=>'Blood Pressure'
-);
-wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12141588076244464)
 ,p_page_id=>1
 ,p_translated_flow_id=>1000103
@@ -578,19 +569,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_template_translatable=>'Y'
 ,p_translate_to_text=>unistr('Hist\00F3ria')
 ,p_translate_from_text=>'History'
-);
-wwv_flow_imp_shared.create_translation(
- p_id=>wwv_flow_imp.id(12142103696244464)
-,p_page_id=>1
-,p_translated_flow_id=>1000103
-,p_translate_to_id=>wwv_flow_imp.id(29440237707520123.1000103)
-,p_translate_from_id=>wwv_flow_imp.id(29440237707520123)
-,p_translate_column_id=>20
-,p_translate_to_lang_code=>'sk'
-,p_translation_specific_to_item=>'NO'
-,p_template_translatable=>'Y'
-,p_translate_to_text=>unistr('V\00E1ha')
-,p_translate_from_text=>'Weight'
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12142316209244464)
@@ -920,18 +898,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'About'
 ,p_translate_from_text=>'About'
 );
-wwv_flow_imp.component_end;
-end;
-/
-begin
-wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
-,p_default_workspace_id=>29631720813958193
-,p_default_application_id=>103
-,p_default_id_offset=>0
-,p_default_owner=>'DEV'
-);
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12145434665244497)
 ,p_translated_flow_id=>1000103
@@ -955,6 +921,18 @@ wwv_flow_imp_shared.create_translation(
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>unistr('Odhl\00E1si\0165')
 ,p_translate_from_text=>'Sign Out'
+);
+wwv_flow_imp.component_end;
+end;
+/
+begin
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12145875359244497)
@@ -1797,18 +1775,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'N'
 ,p_translate_from_text=>'N'
 );
-wwv_flow_imp.component_end;
-end;
-/
-begin
-wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
-,p_default_workspace_id=>29631720813958193
-,p_default_application_id=>103
-,p_default_id_offset=>0
-,p_default_owner=>'DEV'
-);
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12158635729245300)
 ,p_page_id=>3
@@ -1834,6 +1800,18 @@ wwv_flow_imp_shared.create_translation(
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>'N'
 ,p_translate_from_text=>'N'
+);
+wwv_flow_imp.component_end;
+end;
+/
+begin
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12159092018245301)
@@ -2735,18 +2713,6 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'a-pwaInstall'
 ,p_translate_from_text=>'a-pwaInstall'
 );
-wwv_flow_imp.component_end;
-end;
-/
-begin
-wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
-,p_default_workspace_id=>29631720813958193
-,p_default_application_id=>103
-,p_default_id_offset=>0
-,p_default_owner=>'DEV'
-);
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12172902849245676)
 ,p_translated_flow_id=>1000103
@@ -2770,6 +2736,18 @@ wwv_flow_imp_shared.create_translation(
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>'icon-only'
 ,p_translate_from_text=>'icon-only'
+);
+wwv_flow_imp.component_end;
+end;
+/
+begin
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'DEV'
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12173354963245676)
@@ -2900,19 +2878,17 @@ wwv_flow_imp_shared.create_translation(
 '  <span class="t-Avatar is-placeholder{if ?SHAPE/} #SHAPE!ATTR#{endif/}{if ?SIZE/} #SIZE!ATTR#{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/}"></span>',
 '{else/}',
 '  {if ?LINK/}<a href="#LINK!ATTR#" #LINK_ATTR!RAW#{else/}<span{endif/} class="t-Avatar{if ?TYPE/} t-Avatar--{if ?IMAGE/}image{else/}{if ?INITIALS/}initials{else/}icon{endif/}{endif/}{endif/}{if ?SHAPE/} #SHAPE!ATTR#{endif/}{if ?SIZE/} #SIZE!ATTR#{end'
-||'if/}{if ?ICON/} #ICON!ATTR#{else/} fa fa-user{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/} u-color">{if IMAGE/}<img src="#IMAGE!ATTR#" alt="#IMAGE_ALT!ATTR#"{if ?IMAGE_ALT/} title="#IMAGE_ALT!ATTR#"{endif/} loading="lazy" />{else/}{if ?INITIA'
-||'LS/}#INITIALS!RAW#{endif/}{endif/}{if ?LINK/}</a>{else/}</span>{endif/}',
-'{endif/}',
-''))
+||'if/}{if ?ICON/} #ICON!ATTR#{else/} fa fa-user{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/} u-color" {if !IMAGE/}{if DESCRIPTION/} role="img" aria-label="#DESCRIPTION!ATTR#" title="#DESCRIPTION!ATTR#"{else/} role="presentation"{endif/}{endif/}'
+||'>{if IMAGE/}<img src="#IMAGE!ATTR#" alt="#DESCRIPTION!ATTR#"{if ?DESCRIPTION/} title="#DESCRIPTION!ATTR#"{endif/} loading="lazy" />{else/}{if ?INITIALS/}#INITIALS!RAW#{endif/}{endif/}{if ?LINK/}</a>{else/}</span>{endif/}',
+'{endif/}'))
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '{if APEX$IS_LAZY_LOADING/}',
 '  <span class="t-Avatar is-placeholder{if ?SHAPE/} #SHAPE!ATTR#{endif/}{if ?SIZE/} #SIZE!ATTR#{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/}"></span>',
 '{else/}',
 '  {if ?LINK/}<a href="#LINK!ATTR#" #LINK_ATTR!RAW#{else/}<span{endif/} class="t-Avatar{if ?TYPE/} t-Avatar--{if ?IMAGE/}image{else/}{if ?INITIALS/}initials{else/}icon{endif/}{endif/}{endif/}{if ?SHAPE/} #SHAPE!ATTR#{endif/}{if ?SIZE/} #SIZE!ATTR#{end'
-||'if/}{if ?ICON/} #ICON!ATTR#{else/} fa fa-user{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/} u-color">{if IMAGE/}<img src="#IMAGE!ATTR#" alt="#IMAGE_ALT!ATTR#"{if ?IMAGE_ALT/} title="#IMAGE_ALT!ATTR#"{endif/} loading="lazy" />{else/}{if ?INITIA'
-||'LS/}#INITIALS!RAW#{endif/}{endif/}{if ?LINK/}</a>{else/}</span>{endif/}',
-'{endif/}',
-''))
+||'if/}{if ?ICON/} #ICON!ATTR#{else/} fa fa-user{endif/}{if ?CSS_CLASSES/} #CSS_CLASSES!ATTR#{endif/} u-color" {if !IMAGE/}{if DESCRIPTION/} role="img" aria-label="#DESCRIPTION!ATTR#" title="#DESCRIPTION!ATTR#"{else/} role="presentation"{endif/}{endif/}'
+||'>{if IMAGE/}<img src="#IMAGE!ATTR#" alt="#DESCRIPTION!ATTR#"{if ?DESCRIPTION/} title="#DESCRIPTION!ATTR#"{endif/} loading="lazy" />{else/}{if ?INITIALS/}#INITIALS!RAW#{endif/}{endif/}{if ?LINK/}</a>{else/}</span>{endif/}',
+'{endif/}'))
 );
 wwv_flow_imp_shared.create_translation(
  p_id=>wwv_flow_imp.id(12175071009246287)
@@ -2927,22 +2903,24 @@ wwv_flow_imp_shared.create_translation(
 '{if APEX$IS_LAZY_LOADING/}',
 '  <span class="t-Badge is-placeholder{if ?SIZE/} #SIZE!ATTR#{endif/}{if ?SHAPE/} #SHAPE!ATTR#{endif/}"></span>',
 '{else/}',
-'  <span class="t-Badge {if ?STATE/}t-Badge--#STATE!ATTR#{endif/} {if ?STYLE/}#STYLE!ATTR#{endif/} {if ?SIZE/}#SIZE!ATTR#{endif/} {if ?SHAPE/}#SHAPE!ATTR#{endif/}" role="status" aria-label="#LABEL!ATTR# #VALUE!ATTR#" title="#LABEL!ATTR# #VALUE!ATTR#">',
+'  {if ?LINK/}<a href="#LINK!ATTR#" #LINK_ATTR!RAW#{else/}<span{endif/} class="t-Badge {if ?STATE/}t-Badge--#STATE!ATTR#{endif/} {if ?STYLE/}#STYLE!ATTR#{endif/} {if ?SIZE/}#SIZE!ATTR#{endif/} {if ?SHAPE/}#SHAPE!ATTR#{endif/}" role="status" aria-label'
+||'="#LABEL!ATTR# #VALUE!ATTR#" title="#LABEL!ATTR# #VALUE!ATTR#">',
 '    {if ?ICON/}<span class="t-Badge-icon #ICON!ATTR#" aria-hidden="true"></span>{endif/}',
 '    {if LABEL_DISPLAY/}<span class="t-Badge-label">#LABEL!RAW#</span>{endif/}',
 '    <span class="t-Badge-value">#VALUE!RAW#</span>',
-'  </span>',
+'  {if ?LINK/}</a>{else/}</span>{endif/}',
 '{endif/}',
 ''))
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '{if APEX$IS_LAZY_LOADING/}',
 '  <span class="t-Badge is-placeholder{if ?SIZE/} #SIZE!ATTR#{endif/}{if ?SHAPE/} #SHAPE!ATTR#{endif/}"></span>',
 '{else/}',
-'  <span class="t-Badge {if ?STATE/}t-Badge--#STATE!ATTR#{endif/} {if ?STYLE/}#STYLE!ATTR#{endif/} {if ?SIZE/}#SIZE!ATTR#{endif/} {if ?SHAPE/}#SHAPE!ATTR#{endif/}" role="status" aria-label="#LABEL!ATTR# #VALUE!ATTR#" title="#LABEL!ATTR# #VALUE!ATTR#">',
+'  {if ?LINK/}<a href="#LINK!ATTR#" #LINK_ATTR!RAW#{else/}<span{endif/} class="t-Badge {if ?STATE/}t-Badge--#STATE!ATTR#{endif/} {if ?STYLE/}#STYLE!ATTR#{endif/} {if ?SIZE/}#SIZE!ATTR#{endif/} {if ?SHAPE/}#SHAPE!ATTR#{endif/}" role="status" aria-label'
+||'="#LABEL!ATTR# #VALUE!ATTR#" title="#LABEL!ATTR# #VALUE!ATTR#">',
 '    {if ?ICON/}<span class="t-Badge-icon #ICON!ATTR#" aria-hidden="true"></span>{endif/}',
 '    {if LABEL_DISPLAY/}<span class="t-Badge-label">#LABEL!RAW#</span>{endif/}',
 '    <span class="t-Badge-value">#VALUE!RAW#</span>',
-'  </span>',
+'  {if ?LINK/}</a>{else/}</span>{endif/}',
 '{endif/}',
 ''))
 );
@@ -2957,7 +2935,7 @@ wwv_flow_imp_shared.create_translation(
 ,p_template_translatable=>'N'
 ,p_translate_to_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '{if APEX$IS_LAZY_LOADING/}',
-'  <div class="t-Comments-item">',
+'  <div class="t-Comments-item{if ?COMMENT_CLASS/} #COMMENT_CLASS!ATTR#{endif/}">',
 '    {if DISPLAY_AVATAR%assigned/}',
 '      <div class="t-Comments-icon">',
 '        {with/}',
@@ -2974,13 +2952,13 @@ wwv_flow_imp_shared.create_translation(
 '    </div>',
 '  </div>',
 '{else/}',
-'  <div class="t-Comments-item">',
+'  <div class="t-Comments-item{if ?COMMENT_CLASS/} #COMMENT_CLASS!ATTR#{endif/}">',
 '    {if DISPLAY_AVATAR/}',
 '      <div class="t-Comments-icon">',
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          ICON:=#AVATAR_ICON#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          SIZE:=t-Avatar--xs',
@@ -3006,7 +2984,7 @@ wwv_flow_imp_shared.create_translation(
 '{endif/}'))
 ,p_translate_from_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '{if APEX$IS_LAZY_LOADING/}',
-'  <div class="t-Comments-item">',
+'  <div class="t-Comments-item{if ?COMMENT_CLASS/} #COMMENT_CLASS!ATTR#{endif/}">',
 '    {if DISPLAY_AVATAR%assigned/}',
 '      <div class="t-Comments-icon">',
 '        {with/}',
@@ -3023,13 +3001,13 @@ wwv_flow_imp_shared.create_translation(
 '    </div>',
 '  </div>',
 '{else/}',
-'  <div class="t-Comments-item">',
+'  <div class="t-Comments-item{if ?COMMENT_CLASS/} #COMMENT_CLASS!ATTR#{endif/}">',
 '    {if DISPLAY_AVATAR/}',
 '      <div class="t-Comments-icon">',
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          ICON:=#AVATAR_ICON#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          SIZE:=t-Avatar--xs',
@@ -3093,7 +3071,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          ICON:=#AVATAR_ICON#',
 '          SHAPE:=#AVATAR_SHAPE#',
@@ -3134,7 +3112,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          ICON:=#AVATAR_ICON#',
 '          SHAPE:=#AVATAR_SHAPE#',
@@ -3182,7 +3160,7 @@ wwv_flow_imp_shared.create_translation(
 '  <div class="t-ContentRow-wrap" aria-hidden="true">',
 '    {if ?SELECTION%assigned/}<div class="t-ContentRow-selection is-placeholder"></div>{endif/}',
 '    {if DISPLAY_BADGE/}',
-'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR#">',
+'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR# #BADGE_POS!ATTR# #BADGE_ALIGNMENT!ATTR#">',
 '        {with/}',
 '          LABEL:=',
 '          VALUE:=',
@@ -3214,7 +3192,7 @@ wwv_flow_imp_shared.create_translation(
 '  <div class="t-ContentRow-wrap">',
 '    {if ?SELECTION%assigned/}<div class="t-ContentRow-selection">#SELECTION!RAW#</div>{endif/}',
 '    {if DISPLAY_BADGE/}',
-'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR#">',
+'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR# #BADGE_POS!ATTR# #BADGE_ALIGNMENT!ATTR#">',
 '        {with/}',
 '          LABEL_DISPLAY:=#BADGE_LABEL_DISPLAY#',
 '          LABEL:=#BADGE_LABEL#',
@@ -3224,6 +3202,8 @@ wwv_flow_imp_shared.create_translation(
 '          SIZE:=#BADGE_SIZE#',
 '          STYLE:=#BADGE_STYLE#',
 '          SHAPE:=#BADGE_SHAPE#',
+'          LINK:=#BADGE_LINK#',
+'          LINK_ATTR:=#BADGE_LINK_ATTR!RAW#',
 '        {apply THEME$BADGE/}',
 '      </div>',
 '    {endif/}',
@@ -3232,7 +3212,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          ICON:=#AVATAR_ICON#',
 '          SHAPE:=#AVATAR_SHAPE#',
@@ -3259,7 +3239,7 @@ wwv_flow_imp_shared.create_translation(
 '  <div class="t-ContentRow-wrap" aria-hidden="true">',
 '    {if ?SELECTION%assigned/}<div class="t-ContentRow-selection is-placeholder"></div>{endif/}',
 '    {if DISPLAY_BADGE/}',
-'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR#">',
+'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR# #BADGE_POS!ATTR# #BADGE_ALIGNMENT!ATTR#">',
 '        {with/}',
 '          LABEL:=',
 '          VALUE:=',
@@ -3291,7 +3271,7 @@ wwv_flow_imp_shared.create_translation(
 '  <div class="t-ContentRow-wrap">',
 '    {if ?SELECTION%assigned/}<div class="t-ContentRow-selection">#SELECTION!RAW#</div>{endif/}',
 '    {if DISPLAY_BADGE/}',
-'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR#">',
+'      <div class="t-ContentRow-badge #BADGE_COL_WIDTH!ATTR# #BADGE_POS!ATTR# #BADGE_ALIGNMENT!ATTR#">',
 '        {with/}',
 '          LABEL_DISPLAY:=#BADGE_LABEL_DISPLAY#',
 '          LABEL:=#BADGE_LABEL#',
@@ -3301,6 +3281,8 @@ wwv_flow_imp_shared.create_translation(
 '          SIZE:=#BADGE_SIZE#',
 '          STYLE:=#BADGE_STYLE#',
 '          SHAPE:=#BADGE_SHAPE#',
+'          LINK:=#BADGE_LINK#',
+'          LINK_ATTR:=#BADGE_LINK_ATTR!RAW#',
 '        {apply THEME$BADGE/}',
 '      </div>',
 '    {endif/}',
@@ -3309,7 +3291,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          ICON:=#AVATAR_ICON#',
 '          SHAPE:=#AVATAR_SHAPE#',
@@ -3372,7 +3354,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          ICON:=#AVATAR_ICON#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          CSS_CLASSES:=u-color',
@@ -3429,7 +3411,7 @@ wwv_flow_imp_shared.create_translation(
 '        {with/}',
 '          TYPE:=#AVATAR_TYPE#',
 '          IMAGE:=#AVATAR_IMAGE#',
-'          IMAGE_ALT:=#AVATAR_IMAGE_ALT#',
+'          DESCRIPTION:=#AVATAR_DESCRIPTION#',
 '          ICON:=#AVATAR_ICON#',
 '          INITIALS:=#AVATAR_INITIALS#',
 '          CSS_CLASSES:=u-color',
@@ -3521,8 +3503,8 @@ end;
 /
 begin
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
 ,p_default_workspace_id=>29631720813958193
 ,p_default_application_id=>103
 ,p_default_id_offset=>0
@@ -3541,7 +3523,500 @@ wwv_flow_imp_shared.create_translation(
 ,p_translate_to_text=>'NONE'
 ,p_translate_from_text=>'NONE'
 );
-null;
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33301612943878007)
+,p_page_id=>3
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30391555889354628.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30391555889354628)
+,p_translate_column_id=>278
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'P3_WEIGHT'
+,p_translate_from_text=>'P3_WEIGHT'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33301707970878016)
+,p_page_id=>3
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30391555889354628.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30391555889354628)
+,p_translate_column_id=>279
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'N'
+,p_translate_from_text=>'N'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33301958776878016)
+,p_page_id=>4
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30407674368431424.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30407674368431424)
+,p_translate_column_id=>279
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'N'
+,p_translate_from_text=>'N'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33302171461878065)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(31317489373338518.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(31317489373338518)
+,p_translate_column_id=>288
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'DIALOG_RETURN_ITEM'
+,p_translate_from_text=>'DIALOG_RETURN_ITEM'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33302566493878105)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(31317489373338518.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(31317489373338518)
+,p_translate_column_id=>296
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'N'
+,p_translate_from_text=>'N'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33302697597878111)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(31317489373338518.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(31317489373338518)
+,p_translate_column_id=>297
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'P3_WEIGHT'
+,p_translate_from_text=>'P3_WEIGHT'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33303316432879661)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30360749618881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30360749618881701)
+,p_translate_column_id=>626
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'First 25 Rows'
+,p_translate_from_text=>'First 25 Rows'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33303472046879662)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30340231238557303.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30340231238557303)
+,p_translate_column_id=>626
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'First 10 Rows'
+,p_translate_from_text=>'First 10 Rows'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33303661028879666)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30360749618881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30360749618881701)
+,p_translate_column_id=>627
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Displays first 25 rows.'
+,p_translate_from_text=>'Displays first 25 rows.'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33303809678879666)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30340231238557303.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30340231238557303)
+,p_translate_column_id=>627
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Shows first 10 rows of the report.'
+,p_translate_from_text=>'Shows first 10 rows of the report.'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33304222083879679)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8440549805112551.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8440549805112551)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Cirtical'
+,p_translate_from_text=>'Top: Cirtical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33304430152879679)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8442565340112552.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8442565340112552)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 1 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33305488962879680)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30361397910881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30361397910881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Elevated'
+,p_translate_from_text=>'Top: Elevated'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33306038219879680)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30361234737881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30361234737881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Critical'
+,p_translate_from_text=>'Bottom: Critical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33306649410879681)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30361405748881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30361405748881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 2'
+,p_translate_from_text=>'Top: Stage 2'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33307000359879681)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8442978634112553.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8442978634112553)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Elevated'
+,p_translate_from_text=>'Top: Elevated'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33307483108879681)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30361133921881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30361133921881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 1 - Hypertension'
+,p_translate_from_text=>'Top: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33307692459879681)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30360902897881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30360902897881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 2 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 2 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33308899582879682)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8440973207112551.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8440973207112551)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 1 - Hypertension'
+,p_translate_from_text=>'Top: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33309006904879682)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30361032441881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30361032441881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Cirtical'
+,p_translate_from_text=>'Top: Cirtical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33309472677879682)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(30360819403881701.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(30360819403881701)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 1 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33309877719879683)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8441730993112552.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8441730993112552)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 2'
+,p_translate_from_text=>'Top: Stage 2'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33310696178879683)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8442191765112552.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8442191765112552)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 2 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 2 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33310853662879683)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(8441318930112551.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(8441318930112551)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Critical'
+,p_translate_from_text=>'Bottom: Critical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33315168593330712)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314529942320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314529942320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 2 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 2 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33315271734330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314266661320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314266661320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Cirtical'
+,p_translate_from_text=>'Top: Cirtical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33315487411330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313180402216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313180402216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 1 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33315697803330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313003159216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313003159216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Elevated'
+,p_translate_from_text=>'Top: Elevated'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33315849311330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313260977216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313260977216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 2 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 2 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33316030997330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313460688216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313460688216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 1 - Hypertension'
+,p_translate_from_text=>'Top: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33316222310330713)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313521122216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313521122216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Critical'
+,p_translate_from_text=>'Bottom: Critical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33316438688330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314649731320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314649731320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 2'
+,p_translate_from_text=>'Top: Stage 2'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33316639027330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314371161320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314371161320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Elevated'
+,p_translate_from_text=>'Top: Elevated'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33316837669330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314774124320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314774124320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 1 - Hypertension'
+,p_translate_from_text=>'Top: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33317050213330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314896850320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314896850320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Critical'
+,p_translate_from_text=>'Bottom: Critical'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33317251501330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33314498279320788.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33314498279320788)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Bottom: Stage 1 - Hypertension'
+,p_translate_from_text=>'Bottom: Stage 1 - Hypertension'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33317448961330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33313354610216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33313354610216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Stage 2'
+,p_translate_from_text=>'Top: Stage 2'
+);
+wwv_flow_imp_shared.create_translation(
+ p_id=>wwv_flow_imp.id(33317683262330714)
+,p_page_id=>1
+,p_translated_flow_id=>1000103
+,p_translate_to_id=>wwv_flow_imp.id(33312917146216626.1000103)
+,p_translate_from_id=>wwv_flow_imp.id(33312917146216626)
+,p_translate_column_id=>630
+,p_translate_to_lang_code=>'sk'
+,p_translation_specific_to_item=>'NO'
+,p_template_translatable=>'N'
+,p_translate_to_text=>'Top: Cirtical'
+,p_translate_from_text=>'Top: Cirtical'
+);
 wwv_flow_imp.component_end;
 end;
 /

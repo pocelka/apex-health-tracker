@@ -4,8 +4,8 @@ begin
 --     PAGE: 00001
 --   Manifest End
 wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
 ,p_default_workspace_id=>29631720813958193
 ,p_default_application_id=>103
 ,p_default_id_offset=>0
@@ -20,10 +20,12 @@ wwv_flow_imp_page.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'This page is used to provide 360 degree overview of personal health statistics. ',
-'<br>',
-'User can:',
-'<br>',
+'<p>',
+'    This page is used to provide 360 degree overview of personal health statistics. ',
+'    <br>',
+'    User can:',
+'    <br>',
+'</p>',
 '',
 '<ul>',
 '    <li>Switch between different tabs.</li>',
@@ -33,7 +35,7 @@ wwv_flow_imp_page.create_page(
 ''))
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'DEV'
-,p_last_upd_yyyymmddhh24miss=>'20230608080831'
+,p_last_upd_yyyymmddhh24miss=>'20240203180337'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29439167104520112)
@@ -60,13 +62,16 @@ wwv_flow_imp_page.create_page_plug(
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29440237707520123)
 ,p_plug_name=>'Weight'
+,p_region_name=>'weigth-graph'
 ,p_parent_plug_id=>wwv_flow_imp.id(29439257628520113)
 ,p_region_template_options=>'#DEFAULT#:js-showMaximizeButton:t-Region--scrollBody'
 ,p_escape_on_http_output=>'Y'
 ,p_plug_template=>wwv_flow_imp.id(30091175067325156)
 ,p_plug_display_sequence=>10
+,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'SUB_REGIONS'
 ,p_plug_source_type=>'NATIVE_JET_CHART'
+,p_translate_title=>'N'
 );
 wwv_flow_imp_page.create_jet_chart(
  p_id=>wwv_flow_imp.id(29440816899520129)
@@ -165,13 +170,16 @@ wwv_flow_imp_page.create_jet_chart_axis(
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29440327700520124)
 ,p_plug_name=>'Blood Pressure'
+,p_region_name=>'bp-graph'
 ,p_parent_plug_id=>wwv_flow_imp.id(29439257628520113)
 ,p_region_template_options=>'#DEFAULT#:js-showMaximizeButton:t-Region--scrollBody'
 ,p_escape_on_http_output=>'Y'
 ,p_plug_template=>wwv_flow_imp.id(30091175067325156)
 ,p_plug_display_sequence=>20
+,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'SUB_REGIONS'
 ,p_plug_source_type=>'NATIVE_JET_CHART'
+,p_translate_title=>'N'
 );
 wwv_flow_imp_page.create_jet_chart(
  p_id=>wwv_flow_imp.id(29442346765520144)
@@ -283,6 +291,20 @@ wwv_flow_imp_page.create_jet_chart_series(
 ,p_items_label_position=>'aboveMarker'
 );
 wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(29442559882520146)
+,p_chart_id=>wwv_flow_imp.id(29442346765520144)
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'on'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
  p_id=>wwv_flow_imp.id(29442964725520150)
 ,p_chart_id=>wwv_flow_imp.id(29442346765520144)
 ,p_axis=>'y2'
@@ -310,20 +332,6 @@ wwv_flow_imp_page.create_jet_chart_axis(
 ,p_major_tick_rendered=>'on'
 ,p_minor_tick_rendered=>'off'
 ,p_tick_label_rendered=>'on'
-);
-wwv_flow_imp_page.create_jet_chart_axis(
- p_id=>wwv_flow_imp.id(29442559882520146)
-,p_chart_id=>wwv_flow_imp.id(29442346765520144)
-,p_axis=>'x'
-,p_is_rendered=>'on'
-,p_format_scaling=>'auto'
-,p_scaling=>'linear'
-,p_baseline_scaling=>'zero'
-,p_major_tick_rendered=>'on'
-,p_minor_tick_rendered=>'off'
-,p_tick_label_rendered=>'on'
-,p_tick_label_rotation=>'auto'
-,p_tick_label_position=>'outside'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(29439333631520114)
@@ -987,21 +995,47 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'apexafterclosedialog'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(30330916687428646)
+ p_id=>wwv_flow_imp.id(31317489373338518)
 ,p_event_id=>wwv_flow_imp.id(30330816600428645)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_SET_VALUE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P1_LAST_WEIGHT'
+,p_attribute_01=>'DIALOG_RETURN_ITEM'
+,p_attribute_09=>'N'
+,p_attribute_10=>'P3_WEIGHT'
+,p_wait_for_result=>'Y'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(30330916687428646)
+,p_event_id=>wwv_flow_imp.id(30330816600428645)
+,p_event_result=>'TRUE'
+,p_action_sequence=>30
 ,p_execute_on_page_init=>'N'
 ,p_name=>'Refresh Graph'
 ,p_action=>'NATIVE_REFRESH'
 ,p_affected_elements_type=>'REGION'
 ,p_affected_region_id=>wwv_flow_imp.id(29440237707520123)
 );
+wwv_flow_imp.component_end;
+end;
+/
+begin
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2023.10.31'
+,p_release=>'23.2.3'
+,p_default_workspace_id=>29631720813958193
+,p_default_application_id=>103
+,p_default_id_offset=>0
+,p_default_owner=>'DEV'
+);
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(30331198363428648)
 ,p_event_id=>wwv_flow_imp.id(30330816600428645)
 ,p_event_result=>'TRUE'
-,p_action_sequence=>30
+,p_action_sequence=>40
 ,p_execute_on_page_init=>'N'
 ,p_name=>'Refresh Report'
 ,p_action=>'NATIVE_REFRESH'
@@ -1017,18 +1051,6 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'apexafterclosedialog'
-);
-wwv_flow_imp.component_end;
-end;
-/
-begin
-wwv_flow_imp.component_begin (
- p_version_yyyy_mm_dd=>'2023.04.28'
-,p_release=>'23.1.0'
-,p_default_workspace_id=>29631720813958193
-,p_default_application_id=>103
-,p_default_id_offset=>0
-,p_default_owner=>'DEV'
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(30331343279428650)
